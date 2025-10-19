@@ -22,7 +22,7 @@ jobs:
         protocol: ftp
         port: 21
         local-dir: ./  # Raíz del proyecto
-        server-dir: /public_html/dportosports/  # Ajusta según tu carpeta en Hostinger
+        server-dir: ./  # Ajusta según tu carpeta en Hostinger
         exclude: |
           .git/**
           .github/**

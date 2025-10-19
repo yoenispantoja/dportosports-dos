@@ -1,0 +1,92 @@
+/* RTL Mode Style */
+
+[dir='rtl'] .slick-next:before {
+    content: "\f105";
+}
+
+[dir='rtl'] .slick-prev:before {
+    content: "\f104";
+}
+
+[dir='rtl'] .post-carousel-lg .slick-prev {
+    right: auto;
+    left: -25px;
+}
+
+[dir='rtl'] .slick-arrows-top {
+    right: unset;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    gap: 1rem;
+}
+
+[dir='rtl'] .post-carousel-lg .slick-next {
+    right: -25px;
+    left: auto;
+}
+
+[dir='rtl'] .dt_header-topbar .dt_header-wrap.right .widget:not(:first-child),
+[dir='rtl'] .dt_header-topbar .dt_header-wrap.left .widget:not(:first-child) {
+    margin-right: 1.8rem;
+    margin-left: 0;
+}
+
+[dir='rtl'] .dt_navbar-list-right>li:not(:last-child) {
+    margin-left: 1.2rem;
+    margin-right: 0;
+}
+
+[dir='rtl'] .post .meta li:not(:last-child) {
+    margin-left: 0.8rem;
+    margin-right: 0;
+}
+
+[dir='rtl'] .post .meta li img.author {
+    margin-left: 12px;
+    margin-right: 0;
+}
+
+[dir='rtl'] .post .meta li:after {
+    margin-right: 1rem;
+    margin-left: 0;
+}
+
+[dir='rtl'] .social-share.dt-mr-auto {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+[dir='rtl'] .post.post-list-sm.circle .thumb+.details,
+[dir='rtl'] .post.post-list-sm.square .thumb+.details,
+[dir='rtl'] .post.post-list .thumb+.details {
+    margin-right: 2rem;
+    margin-left: 0;
+}
+
+@media only screen and (max-width: 767px) {
+    [dir='rtl'] .post.post-list .thumb+.details {
+        margin-right: 0;
+    }
+}
+
+[dir='rtl'] .widget ul:not(.wp-block-social-links, .meta, .list-inline, .wp-block-latest-posts, .product_list_widget) li a:before {
+    margin-left: 15px;
+    float: right;
+}
+
+[dir='rtl'] .widget ul:not(.wp-block-social-links, .meta, .list-inline) li:after {
+    background: -webkit-linear-gradient(right, transparent 0%, rgba(189, 189, 189, 0.3) 100%);
+    background: linear-gradient(to right, transparent 0%, rgba(189, 189, 189, 0.3) 100%);
+}
+
+[dir='rtl'] .dt_navbar-right>ul {
+    padding-right: 1.2rem;
+    padding-left: 0;
+}
+
+[dir='rtl'] .dt_mobilenav-toggles {
+    padding-left: 1.2rem;
+    padding-right: 0;
+}

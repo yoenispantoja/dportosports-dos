@@ -10,10 +10,10 @@
  */
 function newsalert_theme_setup(){
     /*
-     * Make child theme available for translation.
-     * Translations can be filed in the /languages/ directory.
+     * Hacer el tema disponible para traducción.
+     * Las traducciones están en /wp-content/languages/themes/
      */
-    load_child_theme_textdomain( 'newsalert' );
+    load_theme_textdomain( 'newsalert', get_template_directory() . '/../../languages/themes' );
 }
 add_action( 'after_setup_theme', 'newsalert_theme_setup' );
 

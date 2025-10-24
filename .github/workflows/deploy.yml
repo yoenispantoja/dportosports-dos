@@ -29,3 +29,5 @@ jobs:
           *.log
           *.zip
           *.sql
+          wp-config.php
+          .env

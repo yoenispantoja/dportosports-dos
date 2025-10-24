@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * The base configuration for WordPress
  *
@@ -20,17 +20,27 @@
  */
 
 // ** Database settings - You can get this info from your web host ** //
+
+/**
+ * LOCAL DATABASE SETTINGS
+ * Uncomment these lines for local development
+ */
+define( 'DB_NAME', 'dportosports' );
+define( 'DB_USER', 'root' );
+define( 'DB_PASSWORD', '' );
+define( 'DB_HOST', 'localhost' );
+
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'u236685198_dportosports' );
+// define( 'DB_NAME', 'u236685198_dportosports' );
 
 /** Database username */
-define( 'DB_USER', 'u236685198_dportosports' );
+// define( 'DB_USER', 'u236685198_dportosports' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'Dporto2025*' );
+// define( 'DB_PASSWORD', 'Dporto2025*' );
 
 /** Database hostname */
-define( 'DB_HOST', '191.96.56.103:3306' );
+// define( 'DB_HOST', '191.96.56.103:3306' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -73,25 +83,28 @@ $table_prefix = 'wp_';
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-
+/**
+ * Configuración de idioma: Español
+ * Para mostrar la interfaz de WordPress en español.
+ */
+define('WPLANG', 'es_ES');
 
 /**
  * For developers: WordPress debugging mode.
- *
  * Change this to true to enable the display of notices during development.
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
- *
  * For information on other constants that can be used for debugging,
  * visit the documentation.
- *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-if ( ! defined( 'WP_DEBUG' ) ) {
-	define( 'WP_DEBUG', false );
-}
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
+define( 'WP_DEBUG_DISPLAY', true );
+@ini_set( 'display_errors', 1 );
 
-define( 'WP_ENVIRONMENT_TYPE', 'local' );
+// Aumentar el límite de memoria de WordPress
+define('WP_MEMORY_LIMIT', '256M');
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */

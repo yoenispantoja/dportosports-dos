@@ -5,7 +5,7 @@ NewsMunch Main Slider
 if ( ! function_exists( 'newsmunch_site_slider_main' ) ) :
 function newsmunch_site_slider_main() {
 	$newsmunch_slider_position		= get_theme_mod('newsmunch_slider_position','left') == 'left' ? '': 'dt-flex-row-reverse';
-	$newsmunch_slider_ttl			= get_theme_mod('newsmunch_slider_ttl','Main Story');
+	$newsmunch_slider_ttl			= get_theme_mod('newsmunch_slider_ttl','Portada');
 	$newsmunch_slider_cat			= get_theme_mod('newsmunch_slider_cat','0');
 	$newsmunch_num_slides			= get_theme_mod('newsmunch_num_slides','6');
 	$newsmunch_slider_posts			= newsmunch_get_posts($newsmunch_num_slides, $newsmunch_slider_cat);
@@ -80,7 +80,7 @@ NewsMunch Slider Middle
 =========================================*/
 if ( ! function_exists( 'newsmunch_site_slider_middle' ) ) :
 function newsmunch_site_slider_middle() {
-	$newsmunch_slider_mdl_ttl			= get_theme_mod('newsmunch_slider_mdl_ttl','Today Post');
+	$newsmunch_slider_mdl_ttl			= get_theme_mod('newsmunch_slider_mdl_ttl','Entrada del día');
 	$newsmunch_slider_mdl_cat			= get_theme_mod('newsmunch_slider_mdl_cat','0');
 	$newsmunch_num_slides_mdl_tab		= get_theme_mod('newsmunch_num_slides_mdl_tab','2');
 	$newsmunch_posts					= newsmunch_get_posts($newsmunch_num_slides_mdl_tab, $newsmunch_slider_mdl_cat);
@@ -154,7 +154,7 @@ NewsMunch Slider Right
 if ( ! function_exists( 'newsmunch_site_slider_right' ) ) :
 function newsmunch_site_slider_right() {
 	$newsmunch_slider_right_type	= get_theme_mod('newsmunch_slider_right_type','style-1');
-	$newsmunch_slider_right_ttl		= get_theme_mod('newsmunch_slider_right_ttl','Today Update');
+	$newsmunch_slider_right_ttl		= get_theme_mod('newsmunch_slider_right_ttl','Actualización');
 	$newsmunch_tabfirst_cat			= get_theme_mod('newsmunch_tabfirst_cat','0');
 	$newsmunch_tabsecond_cat		= get_theme_mod('newsmunch_tabsecond_cat','0');
 	$newsmunch_tabthird_cat			= get_theme_mod('newsmunch_tabthird_cat','0');
@@ -406,7 +406,7 @@ NewsMunch Footer Copyright
 =========================================*/
 if ( ! function_exists( 'newsmunch_footer_copyright_data' ) ) :
 function newsmunch_footer_copyright_data() {
-	$newsmunch_footer_copyright_text = get_theme_mod('newsmunch_footer_copyright_text','Copyright &copy; [current_year] [site_title] | Powered by [theme_author]');
+	$newsmunch_footer_copyright_text = get_theme_mod('newsmunch_footer_copyright_text','Copyright &copy; [current_year] [site_title]');
 	?>
 	<?php if(!empty($newsmunch_footer_copyright_text)):
 			$newsmunch_copyright_allowed_tags = array(

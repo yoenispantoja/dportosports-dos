@@ -17,7 +17,7 @@ $newsmunch_archives_post_layout = get_theme_mod('newsmunch_archives_post_layout'
 			<?php endif; ?>
 					<?php global $post;
 						$categories = get_the_category($post->ID);
-						$number_of_related_posts = 2; 
+						$number_of_related_posts = 2;
 						if ($categories) {
 							$cat_ids = array();
                         foreach ($categories as $category) $cat_ids[] = $category->term_id;
@@ -39,7 +39,7 @@ $newsmunch_archives_post_layout = get_theme_mod('newsmunch_archives_post_layout'
 						<?php elseif($newsmunch_archives_post_layout=='classic'): ?>
 							<div class="dt-col-md-12 dt-col-sm-12">
 								<?php get_template_part('template-parts/content','page'); ?>
-							</div>	
+							</div>
 						<?php elseif($newsmunch_archives_post_layout=='list'): ?>
 							<div class="dt-col-md-12 dt-col-sm-6">
 								<?php get_template_part('template-parts/content','page-list'); ?>

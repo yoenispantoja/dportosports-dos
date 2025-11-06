@@ -1,5 +1,5 @@
 <?php
-$newsmunch_you_missed_ttl			= get_theme_mod('newsmunch_you_missed_ttl','You Missed');
+$newsmunch_you_missed_ttl			= get_theme_mod('newsmunch_you_missed_ttl','Destacadas');
 $newsmunch_you_missed_cat			= get_theme_mod('newsmunch_you_missed_cat','0');
 $newsmunch_num_you_missed			= get_theme_mod('newsmunch_num_you_missed','6');
 $newsmunch_posts					= newsmunch_get_posts($newsmunch_num_you_missed, $newsmunch_you_missed_cat);

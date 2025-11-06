@@ -1,0 +1,48 @@
+<wpml-config>
+	<admin-texts>
+		<key name='theme_mods_newsmunch-pro'>
+			<key name='newsmunch_hdr_left_ttl' />
+			<key name='newsmunch_hdr_top_ads_title' />
+			<key name='newsmunch_hdr_top_ads_link' />
+			<key name='newsmunch_hdr_subscribe_link' />
+			<key name='newsmunch_hdr_btn_lbl' />
+			<key name='newsmunch_hdr_btn_link' />
+			<key name='newsmunch_hdr_banner_link' />
+			<key name='newsmunch_blog_excerpt_more' />
+			<key name='newsmunch_read_btn_txt' />
+			<key name='newsmunch_latest_post_rm_lbl' />
+			<key name='newsmunch_post_pagination_lm_btn' />
+			<key name='newsmunch_top_tags_ttl' />			
+			<key name='newsmunch_hlatest_story_ttl' />
+			<key name='newsmunch_slider_ttl' />
+			<key name='newsmunch_slider_mdl_ttl' />
+			<key name='newsmunch_slider_right_ttl' />
+			<key name='newsmunch_featured_link_ttl' />
+			<key name='newsmunch_about_ttl' />
+			<key name='newsmunch_about_subttl' />
+			<key name='newsmunch_about_text' />
+			<key name='newsmunch_about_btn_lbl' />
+			<key name='newsmunch_about_btn_link' />
+			<key name='newsmunch_about_content' />
+			<key name='newsmunch_skill_ttl' />
+			<key name='newsmunch_skill_subttl' />
+			<key name='newsmunch_skill_text' />
+			<key name='newsmunch_skill_content' />
+			<key name='newsmunch_skill_btn_link' />
+			<key name='newsmunch_team_ttl' />
+			<key name='newsmunch_faq_ttl' />
+			<key name='newsmunch_contact_form_ttl' />
+			<key name='newsmunch_contact_form_shortcode' />
+			<key name='newsmunch_contact_map_link' />
+			<key name='newsmunch_pg_404_ttl' />
+			<key name='newsmunch_pg_404_subttl' />
+			<key name='newsmunch_pg_404_subttl2' />
+			<key name='newsmunch_pg_404_text' />
+			<key name='newsmunch_pg_404_btn_lbl' />
+			<key name='newsmunch_pg_404_btn_link' />
+			<key name='newsmunch_related_post_ttl' />
+			<key name='newsmunch_you_missed_ttl' />
+			<key name='newsmunch_footer_copyright_text' />
+		</key>
+	</admin-texts>
+</wpml-config>

@@ -3,7 +3,7 @@ Contributors: DesertThemes
 Requires at least: 4.7
 Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 1.0.82
+Stable tag: 1.0.84
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: blog, e-commerce, entertainment, grid-layout, one-column, two-columns, three-columns, left-sidebar, right-sidebar, custom-background, custom-header, custom-logo, custom-menu, featured-images, featured-image-header, flexible-header, post-formats, rtl-language-support, translation-ready, theme-options, threaded-comments, footer-widgets
@@ -79,6 +79,12 @@ License: Creative Commons Zero, CC0 Public Domain
 License:  CC0 Public Domain
 
 == Changelog ==
+
+@version 1.0.84
+* Style improvements - Footer Cart Widget Cart Button
+
+@version 1.0.83
+* Style improvements - Footer Product List
 
 @version 1.0.82
 * Style improvements - Footer Product List

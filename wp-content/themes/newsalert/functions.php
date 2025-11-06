@@ -10,10 +10,10 @@
  */
 function newsalert_theme_setup(){
     /*
-     * Hacer el tema disponible para traducción.
-     * Las traducciones están en /wp-content/languages/themes/
+     * Make child theme available for translation.
+     * Translations can be filed in the /languages/ directory.
      */
-    load_theme_textdomain( 'newsalert', get_template_directory() . '/../../languages/themes' );
+    load_child_theme_textdomain( 'newsalert' );	
 }
 add_action( 'after_setup_theme', 'newsalert_theme_setup' );
 
@@ -62,37 +62,40 @@ function newsalert_site_slider_right() {
 	$newsmunch_hs_slider_tab_date_meta= get_theme_mod('newsmunch_hs_slider_tab_date_meta','1');
 	$newsmunch_num_slides_tab		= get_theme_mod('newsmunch_num_slides_tab','3');
 	$newsmunch_slider_tab1_posts		= newsmunch_get_posts($newsmunch_num_slides_tab, $newsmunch_tabfirst_cat);
-	$newsmunch_slider_tab2_posts		= newsmunch_get_posts($newsmunch_num_slides_tab, $newsmunch_tabsecond_cat);
-	$newsmunch_slider_tab3_posts		= newsmunch_get_posts($newsmunch_num_slides_tab, $newsmunch_tabthird_cat);
+	$newsmunch_slider_tab2_posts		= newsmunch_get_posts($newsmunch_num_slides_tab, $newsmunch_tabsecond_cat);	
+	$newsmunch_slider_tab3_posts		= newsmunch_get_posts($newsmunch_num_slides_tab, $newsmunch_tabthird_cat);		
 if(!empty($newsmunch_slider_right_ttl)):
  ?>
+	<div class="widget-header sl-right">
+		<h4 class="widget-title"><?php echo wp_kses_post($newsmunch_slider_right_ttl); ?></h4>
+	</div>
 <?php endif; ?>
 <div class="dt_tabs post-tabs">
 	<ul class="dt_tabslist" id="postsTab" role="tablist">
-		<?php
+		<?php 
 			$newsmunch_tabfirst_cat = (int) $newsmunch_tabfirst_cat;
 			$newsmunch_tabsecond_cat = (int) $newsmunch_tabsecond_cat;
-
+			
 			if(!empty($newsmunch_tabfirst_cat) && !empty($newsmunch_tabsecond_cat) && !empty($newsmunch_tabthird_cat)):
 				$catFirst = str_replace(" ","-", strtolower(get_cat_name( $newsmunch_tabfirst_cat )));
-				$catSecond = str_replace(" ","-", strtolower(get_cat_name( $newsmunch_tabsecond_cat )));
+				$catSecond = str_replace(" ","-", strtolower(get_cat_name( $newsmunch_tabsecond_cat )));	
 			else:
 				$catFirst = esc_html('popular','newsalert');
 				$catSecond = esc_html('trending','newsalert');
-			endif;
+			endif;			
 		?>
-
+		
 		<?php if(!empty($newsmunch_tabfirst_cat)):?>
 			<li role="presentation"><button aria-controls='<?php echo esc_attr($catFirst); ?>' aria-selected="true" class="nav-link active" data-tab="<?php echo esc_attr($catFirst); ?>" role="tab" type="button"><i class="fas fa-bolt" aria-hidden="true"></i><?php echo esc_html(get_cat_name( $newsmunch_tabfirst_cat )); ?></button></li>
 		<?php else: ?>
 			<li role="presentation"><button aria-controls='<?php echo esc_attr($catFirst); ?>' aria-selected="true" class="nav-link active" data-tab="<?php echo esc_attr($catFirst); ?>" role="tab" type="button"><i class="fas fa-bolt" aria-hidden="true"></i><?php esc_html_e('Popular','newsalert'); ?></button></li>
-		<?php endif; ?>
-
+		<?php endif; ?>	
+		
 		<?php if(!empty($newsmunch_tabsecond_cat)):?>
 			<li role="presentation"><button aria-controls="<?php echo esc_attr($catSecond); ?>" aria-selected="false" class="nav-link" data-tab="<?php echo esc_attr($catSecond); ?>" role="tab" type="button"><i class="fas fa-fire-alt" aria-hidden="true"></i><?php echo esc_html(get_cat_name( $newsmunch_tabsecond_cat )); ?></button></li>
 		<?php else: ?>
 			<li role="presentation"><button aria-controls='<?php echo esc_attr($catSecond); ?>' aria-selected="false" class="nav-link" data-tab="<?php echo esc_attr($catSecond); ?>" role="tab" type="button"><i class="fas fa-fire-alt" aria-hidden="true"></i><?php esc_html_e('Trending','newsalert'); ?></button></li>
-		<?php endif; ?>
+		<?php endif; ?>		
 	</ul>
 	<div class="tab-content" id="postsTabContent">
 		<div class="lds-dual-ring"></div>
@@ -112,9 +115,9 @@ if(!empty($newsmunch_slider_right_ttl)):
 						</div>
 					<?php } ?>
 					<div class="details clearfix">
-						<?php if($newsmunch_hs_slider_tab_cat_meta=='1'): newsmunch_getpost_categories(); endif; ?>
-						<?php if($newsmunch_hs_slider_tab_title=='1'):	newsmunch_common_post_title('h6','post-title dt-my-1'); endif; ?>
-						<?php if($newsmunch_hs_slider_tab_date_meta=='1'): ?>
+						<?php if($newsmunch_hs_slider_tab_cat_meta=='1'): newsmunch_getpost_categories(); endif; ?>	
+						<?php if($newsmunch_hs_slider_tab_title=='1'):	newsmunch_common_post_title('h6','post-title dt-my-1'); endif; ?> 
+						<?php if($newsmunch_hs_slider_tab_date_meta=='1'): ?>	
 							<ul class="meta list-inline dt-mt-1 dt-mb-0">
 								<?php do_action('newsmunch_common_post_date'); ?>
 							</ul>
@@ -139,9 +142,9 @@ if(!empty($newsmunch_slider_right_ttl)):
 						</div>
 					<?php } ?>
 					<div class="details clearfix">
-						<?php if($newsmunch_hs_slider_tab_cat_meta=='1'): newsmunch_getpost_categories(); endif; ?>
-						<?php if($newsmunch_hs_slider_tab_title=='1'):	newsmunch_common_post_title('h6','post-title dt-my-1'); endif; ?>
-						<?php if($newsmunch_hs_slider_tab_date_meta=='1'): ?>
+						<?php if($newsmunch_hs_slider_tab_cat_meta=='1'): newsmunch_getpost_categories(); endif; ?>	
+						<?php if($newsmunch_hs_slider_tab_title=='1'):	newsmunch_common_post_title('h6','post-title dt-my-1'); endif; ?> 
+						<?php if($newsmunch_hs_slider_tab_date_meta=='1'): ?>	
 							<ul class="meta list-inline dt-mt-1 dt-mb-0">
 								<?php do_action('newsmunch_common_post_date'); ?>
 							</ul>
@@ -153,7 +156,7 @@ if(!empty($newsmunch_slider_right_ttl)):
 	</div>
 </div>
 	<?php
-	}
+	} 
 endif;
 add_action( 'newsalert_site_slider_right', 'newsalert_site_slider_right' );
 

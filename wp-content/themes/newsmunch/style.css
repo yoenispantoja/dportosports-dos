@@ -1,7 +1,7 @@
 /*
 Theme Name: 	   NewsMunch
 Text Domain: 	   newsmunch
-Version:            1.0.82
+Version:            1.0.84
 Tested up to:       6.8
 Requires at least:  4.7
 Requires PHP:       7.0
@@ -318,4 +318,12 @@ a.wp-block-button__link:focus {
 
 .dt_footer ul.product_list_widget li .woocommerce-Price-amount {
     color: #fff;
+}
+
+.dt_footer ul.product_list_widget li {
+    border-bottom: none;
+}
+
+.dt_footer .widget_shopping_cart .button:not(.checkout):not(.add_to_cart_button) {
+    background-color: var(--dt-main-color);
 }

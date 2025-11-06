@@ -56,7 +56,9 @@ $newsmunch_hs_hdr_sticky = get_theme_mod( 'newsmunch_hs_hdr_sticky','1');
 											<div class="dt_navbar-right">
 												<ul class="dt_navbar-list-right">
 													<?php do_action('newsmunch_woo_cart'); ?>
-													<?php do_action('newsmunch_site_main_search'); ?>												
+													<?php do_action('newsmunch_site_main_search'); ?>
+													<?php do_action('newsmunch_hdr_account'); ?>
+													<?php do_action('newsmunch_hdr_subscribe'); ?>
 													<?php do_action('newsmunch_dark_light_switcher'); ?>
 													<?php do_action('newsmunch_header_button', 'dt-btn-secondary'); ?>
 													<?php do_action('newsmunch_menu_side_docker'); ?>

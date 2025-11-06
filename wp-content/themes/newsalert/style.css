@@ -2,7 +2,7 @@
 Theme Name: 	   NewsAlert
 Text Domain: 	   newsalert
 Template: 			newsmunch
-Version:            1.0.50
+Version:            1.0.52
 Tested up to:       6.8
 Requires at least:  4.7
 Requires PHP:       7.0
@@ -22,9 +22,9 @@ with others.
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
 
 :root {
-    --dt-main-rgb: 251, 74, 96;
-    --dt-black-color: #000;
-    --dt-secondary-color: #233267;
+    --dt-main-rgb: 186, 14, 41;
+    --dt-black-color: #0a1233;
+    --dt-secondary-color: #271e55;
     --dt-title-family: "Lexend Deca", sans-serif;
     --dt-base-family: "Lexend Deca", sans-serif;
 }
@@ -532,7 +532,7 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
     text-decoration: none;
 }
 
-table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantity .wc-block-cart-item__remove-link:hover,
+table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantity .wc-block-cart-item__remove-link:hover, 
 table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantity .wc-block-cart-item__remove-link:focus {
     color: var(--dt-main-color) !important;
 }
@@ -603,7 +603,7 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
     color: var(--dt-secondary-color);
 }
 
-.wp-block-archives-list a:hover,
+.wp-block-archives-list a:hover, 
 .wp-block-archives-list a:focus {
     color: var(--dt-main-color);
 }
@@ -612,7 +612,7 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
     padding: 1rem;
 }
 
-a.wp-block-button__link:hover,
+a.wp-block-button__link:hover, 
 a.wp-block-button__link:focus {
     color: #fff;
     text-decoration: none;
@@ -636,4 +636,12 @@ a.wp-block-button__link:focus {
 
 .dt_footer ul.product_list_widget li .woocommerce-Price-amount {
     color: #fff;
+}
+
+.dt_footer ul.product_list_widget li {
+    border-bottom: none;
+}
+
+.dt_footer .widget_shopping_cart .button:not(.checkout):not(.add_to_cart_button) {
+    background-color: var(--dt-main-color);
 }

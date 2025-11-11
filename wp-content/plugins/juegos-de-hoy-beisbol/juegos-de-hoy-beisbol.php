@@ -21,7 +21,7 @@ function obtener_juegos_de_hoy_bc_html()
   preg_match_all('/<li class="Mini_DayScore">.*?<\/li>/s', $bloque, $juegos);
   if (!isset($juegos[0]) || count($juegos[0]) === 0) return '<p>No se encontraron juegos para hoy.</p>';
 
-  $output = '<div class="juegos-de-hoy-bc"><h4>Resultados del Día - SNB Cuba</h4><ul>';
+  $output = '<div class="juegos-de-hoy-bc"><h5>Resultados del Día - SNB Cuba</h5><ul>';
   $hay_juegos = false;
   foreach ($juegos[0] as $juego) {
     // Estado del juego
@@ -69,7 +69,7 @@ function juegos_de_hoy_bc_estilos()
     strong{
         color: #1151D3;
     }
-    .juegos-de-hoy-bc h4 {
+    .juegos-de-hoy-bc h5 {
            color: #333!important;
         }
         .juegos-de-hoy-bc {
@@ -85,6 +85,7 @@ function juegos_de_hoy_bc_estilos()
         }
         .juegos-de-hoy-bc li {
             margin-bottom: 10px;
+            font-size: 16px;
             border-bottom: 1px solid #ddd;
             padding-bottom: 5px;
         }

@@ -22,7 +22,7 @@ function obtener_juegos_de_hoy_bc_html()
   if (!isset($juegos[0]) || count($juegos[0]) === 0) return '<p>No se encontraron juegos para hoy.</p>';
 
   $output = '<div class="juegos-de-hoy-bc"><h4>Resultados del Día - SNB Cuba</h4><ul>';
-
+  $hay_juegos = false;
   foreach ($juegos[0] as $juego) {
     // Estado del juego
     preg_match('/<span class="span_estado">([^<]+)<\/span>/', $juego, $estado);
@@ -35,14 +35,24 @@ function obtener_juegos_de_hoy_bc_html()
     // Carreras
     preg_match_all('/<div class="Mini_DayScore_Runs"><span>(\d+)<\/span><\/div>/', $juego, $carreras);
 
-    if (count($siglas[1]) === 2 && count($nombres[1]) === 2 && count($carreras[1]) === 2) {
-      $output .= '<li><strong>' . $estado[1] . ' - ' . $outs[1] . '</strong><br>';
-      $output .= $siglas[1][0] . ' (' . $nombres[1][0] . '): ' . $carreras[1][0] . ' | ';
-      $output .= $siglas[1][1] . ' (' . $nombres[1][1] . '): ' . $carreras[1][1];
+    if (count($siglas[1]) === 2 && count($nombres[1]) === 2) {
+      $hay_juegos = true;
+      $estado_val = isset($estado[1]) ? $estado[1] : '';
+      $outs_val = isset($outs[1]) ? $outs[1] : '';
+      $output .= '<li><strong>' . $estado_val;
+      if ($outs_val) $output .= ' - ' . $outs_val;
+      $output .= '</strong><br>';
+      $output .= $siglas[1][0] . ' (' . $nombres[1][0] . ')';
+      if (isset($carreras[1][0])) $output .= ': ' . $carreras[1][0];
+      $output .= ' | ';
+      $output .= $siglas[1][1] . ' (' . $nombres[1][1] . ')';
+      if (isset($carreras[1][1])) $output .= ': ' . $carreras[1][1];
       $output .= '</li>';
     }
   }
-
+  if (!$hay_juegos) {
+    $output .= '<li>No hay juegos disponibles para hoy.</li>';
+  }
   $output .= '</ul></div>';
   return $output;
 }

@@ -1,24 +1,24 @@
-<?php 
+<?php
 $newsmunch_hs_you_missed 		= get_theme_mod( 'newsmunch_hs_you_missed', '1');
 if($newsmunch_hs_you_missed=='1' && !is_404()):
-get_template_part('template-parts/prebuilt-sections/frontpage/section','you-missed'); 
-endif; 
+get_template_part('template-parts/prebuilt-sections/frontpage/section','you-missed');
+endif;
 
 // $newsmunch_hs_gallery 		= get_theme_mod( 'newsmunch_hs_gallery', '1');
 // if($newsmunch_hs_gallery=='1'):
-// get_template_part('template-parts/prebuilt-sections/frontpage/section','gallery'); 
-// endif; 
+// get_template_part('template-parts/prebuilt-sections/frontpage/section','gallery');
+// endif;
 ?>
 </div></div>
 <?php $newsmunch_footer_style			= get_theme_mod('newsmunch_footer_style','footer-dark'); ?>
 <footer class="dt_footer <?php echo esc_attr($newsmunch_footer_style); ?>">
 	<div class="dt-container-md">
-		<?php 
+		<?php
 			// Footer Widget
 			do_action('newsmunch_footer_widget');
-			
+
 			// Footer Copyright
-			do_action('newsmunch_footer_bottom'); 
+			do_action('newsmunch_footer_bottom');
 		?>
 	</div>
 </footer>
@@ -56,5 +56,6 @@ endif;
 do_action('newsmunch_top_scroller');
 do_action('newsmunch_style_switcher');
 wp_footer(); ?>
+<script src="/wp-content/themes/newsmunch-pro/force-proxima-nova.js"></script>
 </body>
 </html>

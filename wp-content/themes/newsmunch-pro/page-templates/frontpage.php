@@ -14,8 +14,12 @@ $newsmunch_front_pg_sidebar_option = get_theme_mod('newsmunch_front_pg_sidebar_o
     <div class="dt-row">
       <?php
       /* get_template_part('sidebar','front-left'); */
-      get_template_part('sidebar', 'front-right');
-      get_template_part('sidebar', 'front-content');
+      if (is_active_sidebar('frontpage-right-sidebar')) {
+        include locate_template('sidebar-front-right.php');
+      }
+      if (is_active_sidebar('frontpage-content')) {
+        include locate_template('sidebar-front-content.php');
+      }
       ?>
     </div>
     <?php

@@ -13,13 +13,14 @@ $newsmunch_front_pg_sidebar_option = get_theme_mod('newsmunch_front_pg_sidebar_o
   <div class="dt-container-md">
     <div class="dt-row">
       <?php
-      /* get_template_part('sidebar','front-left'); */
+      // Yoenis: Aqui se cambió el orden de los includes para que la columna especial salga a la izquierda
       if (is_active_sidebar('frontpage-right-sidebar')) {
         include locate_template('sidebar-front-right.php');
       }
       if (is_active_sidebar('frontpage-content')) {
         include locate_template('sidebar-front-content.php');
       }
+      get_template_part('sidebar','front-left');
       ?>
     </div>
     <?php

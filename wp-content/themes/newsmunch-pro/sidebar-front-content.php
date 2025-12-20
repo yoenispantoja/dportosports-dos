@@ -10,13 +10,12 @@ if ( ! is_active_sidebar( 'frontpage-content' ) ) {
 $is_rt_active = is_active_sidebar('frontpage-left-sidebar');
 $is_lt_active = is_active_sidebar('frontpage-right-sidebar');
 $class='';
-if($is_rt_active && $is_lt_active) {
-// Yoenis: Se le pone 9 en caso de que este espacio quiera ser grande
-	$class= 'dt-col-lg-6';
-} elseif(!$is_rt_active && !$is_lt_active) {
-	$class= 'dt-col-lg-12';
-} elseif(($is_rt_active && !$is_lt_active) || (!$is_rt_active && $is_lt_active)) {
-	$class= 'dt-col-lg-6';
+if($is_lt_active && $is_rt_active) { 
+	$class= 'dt-col-lg-6'; 
+}elseif(!$is_rt_active && !$is_lt_active) { 
+	$class= 'dt-col-lg-12'; 
+}elseif((!$is_rt_active && $is_lt_active) || ($is_rt_active && !$is_lt_active)) {
+	$class= 'dt-col-lg-9'; 
 }
 ?>
 <div class="<?php echo esc_attr($class); ?>">

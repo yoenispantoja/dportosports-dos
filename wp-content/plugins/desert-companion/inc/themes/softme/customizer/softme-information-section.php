@@ -127,7 +127,7 @@ $selective_refresh = isset( $wp_customize->selective_refresh ) ? 'postMessage' :
 					) 
 				) 
 			);	
-	}elseif( 'EasyTech' == $desert_activated_theme->name || 'SoftAlt' == $desert_activated_theme->name){
+	}elseif( 'EasyTech' == $desert_activated_theme->name || 'SoftAlt' == $desert_activated_theme->name  || 'Softica' == $desert_activated_theme->name){
 		$wp_customize->add_setting( 'softme_information_option4', 
 			array(
 			 'sanitize_callback' => 'softme_repeater_sanitize',

@@ -32,7 +32,7 @@ $format = get_post_format() ? : 'standard';
 						<div class="post-header">
 							<?php 
 								if($newsmunch_hs_latest_post_title=='1'):
-									newsmunch_common_post_title('h1','title dt-mt-0 dt-mb-3');
+									newsmunch_common_post_title('h3','title dt-mt-0 dt-mb-3');
 								endif;
 							?>
 							<ul class="meta list-inline dt-mt-0 dt-mb-0">

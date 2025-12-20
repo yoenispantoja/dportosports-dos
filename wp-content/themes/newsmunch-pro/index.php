@@ -12,7 +12,7 @@
  * @package newsmunch
  */
 
-get_header();
+get_header(); 
 $newsmunch_blog_pg_sidebar_option = get_theme_mod('newsmunch_blog_pg_sidebar_option', 'right_sidebar');
 $newsmunch_archives_post_layout 		= get_theme_mod('newsmunch_archives_post_layout', 'list');
 
@@ -25,13 +25,13 @@ $newsmunch_archives_post_layouts_row = ( $newsmunch_archives_post_layout == 'lis
 		<?php if($newsmunch_blog_pg_sidebar_option == 'left_sidebar'): get_sidebar(); endif; ?>
 		<?php if($newsmunch_blog_pg_sidebar_option == 'no_sidebar'): ?>
 			<div class="dt-col-lg-12 content-right">
-		<?php else: ?>
+		<?php else: ?>	
 			<div id="dt-main" class="dt-col-lg-8 content-right">
-		<?php endif; ?>
+		<?php endif; ?>	
 			<div class="<?php echo esc_attr($newsmunch_archives_post_layout_list) ?>">
 				<div class="<?php echo esc_attr($newsmunch_archives_post_layouts_row) ?>">
 					<?php if( have_posts() ): ?>
-					<?php
+					<?php 
 					// Start the loop.
 					while( have_posts() ) : the_post(); ?>
 						<?php if($newsmunch_archives_post_layout=='grid'): ?>
@@ -41,7 +41,7 @@ $newsmunch_archives_post_layouts_row = ( $newsmunch_archives_post_layout == 'lis
 						<?php elseif($newsmunch_archives_post_layout=='classic'): ?>
 							<div class="dt-col-md-12 dt-col-sm-12">
 								<?php get_template_part('template-parts/content/content','page'); ?>
-							</div>
+							</div>	
 						<?php elseif($newsmunch_archives_post_layout=='list'): ?>
 							<div class="dt-col-md-12 dt-col-sm-6">
 								<?php get_template_part('template-parts/content/content','page-list'); ?>
@@ -50,11 +50,11 @@ $newsmunch_archives_post_layouts_row = ( $newsmunch_archives_post_layout == 'lis
 					<?php endwhile; // End the loop. ?>
 
 					<?php // If no content, include the "No posts found" template.
-						else:
-						get_template_part('template-parts/content/content','none');
-					endif; ?>
+						else: 
+						get_template_part('template-parts/content/content','none'); 
+					endif; ?>		
 				</div>
-				<?php do_action('newsmunch_post_pagination'); ?>
+				<?php do_action('newsmunch_post_pagination'); ?>	
 			</div>
 		</div>
 		<?php if($newsmunch_blog_pg_sidebar_option == 'right_sidebar'): get_sidebar(); endif; ?>

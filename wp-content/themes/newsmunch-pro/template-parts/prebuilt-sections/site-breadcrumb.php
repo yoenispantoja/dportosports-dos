@@ -9,7 +9,7 @@ $newsmunch_breadcrumb_bg_img		= get_theme_mod('newsmunch_breadcrumb_bg_img',esc_
 $newsmunch_breadcrumb_type    = get_theme_mod('newsmunch_breadcrumb_type','theme');
 if($newsmunch_hs_site_breadcrumb == '1'):	
 ?>
-<section class="page-header <?php if($newsmunch_breadcrumb_type=='theme3'): esc_attr_e('style-2','newsmunch-pro'); else: esc_attr_e('dt-py-3','newsmunch-pro'); endif; ?>">
+<!--<section class="page-header <?php if($newsmunch_breadcrumb_type=='theme3'): esc_attr_e('style-2','newsmunch-pro'); else: esc_attr_e('dt-py-3','newsmunch-pro'); endif; ?>">
 	<div class="dt-container-md">
 		<div class="dt-row">
 			<div class="dt-col-12">
@@ -52,5 +52,5 @@ if($newsmunch_hs_site_breadcrumb == '1'):
 			</div>
 		</div>
 	</div>
-</section>
+</section> --!>
 <?php endif; endif;?>	

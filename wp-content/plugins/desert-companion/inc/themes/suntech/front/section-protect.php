@@ -1,4 +1,5 @@
 <?php  
+$softme_protect_options_hide_show = get_theme_mod('softme_protect_options_hide_show','1');
 $softme_protect_left_content = get_theme_mod('softme_protect_left_content','<div class="circle_shapes">
                                 <div class="circle"></div>
                             </div>
@@ -20,7 +21,8 @@ $softme_protect_left_content = get_theme_mod('softme_protect_left_content','<div
 $softme_protect_right_ttl		= get_theme_mod('softme_protect_right_ttl','<b class="is_on">Advance Protect</b><b>Advance Protect</b><b>Advance Protect</b>'); 
 $softme_protect_right_subttl	= get_theme_mod('softme_protect_right_subttl','Protecting your privacy Is </br><span>Our Priority</span>'); 
 $softme_protect_right_text		= get_theme_mod('softme_protect_right_text','Amet consectur adipiscing elit sed eiusmod ex tempor incididunt labore dolore magna aliquaenim ad minim veniam.'); 
-$softme_protect_option	= get_theme_mod('softme_protect_option',softme_protect_options_default()); 					
+$softme_protect_option	= get_theme_mod('softme_protect_option',softme_protect_options_default());
+if($softme_protect_options_hide_show=='1'): 					
 ?>	
 <section id="dt_protect" class="dt_protect dt_protect--one dt-py-default front-protect">
 	<div class="dt-container">
@@ -94,3 +96,4 @@ $softme_protect_option	= get_theme_mod('softme_protect_option',softme_protect_op
 		</div>
 	</div>
 </section>
+<?php endif; ?>

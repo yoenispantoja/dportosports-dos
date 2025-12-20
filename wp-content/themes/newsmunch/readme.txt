@@ -1,9 +1,9 @@
 === NewsMunch ===
 Contributors: DesertThemes
 Requires at least: 4.7
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 1.0.84
+Stable tag: 1.0.91
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: blog, e-commerce, entertainment, grid-layout, one-column, two-columns, three-columns, left-sidebar, right-sidebar, custom-background, custom-header, custom-logo, custom-menu, featured-images, featured-image-header, flexible-header, post-formats, rtl-language-support, translation-ready, theme-options, threaded-comments, footer-widgets
@@ -79,6 +79,27 @@ License: Creative Commons Zero, CC0 Public Domain
 License:  CC0 Public Domain
 
 == Changelog ==
+
+@version 1.0.91
+* Style improvements - Footer Mini Cart Widget Badge
+
+@version 1.0.90
+* Tested - By WordPress 6.9
+
+@version 1.0.89
+* Style improvements - Footer Cart Widget Image
+
+@version 1.0.88
+* Style improvements - Footer Cart Widget Image
+
+@version 1.0.87
+* Style improvements - Footer Cart Widget Amount
+
+@version 1.0.86
+* Style improvements - Footer Cart Widget Checkout Button Hover & Focus
+
+@version 1.0.85
+* Style improvements - Footer Cart Widget Cart Button Hover & Focus
 
 @version 1.0.84
 * Style improvements - Footer Cart Widget Cart Button

@@ -13,6 +13,47 @@ $selective_refresh = isset( $wp_customize->selective_refresh ) ? 'postMessage' :
 	);
 	
 	/*=========================================
+	Protect Setting
+	=========================================*/
+	$wp_customize->add_setting(
+		'softme_protect_options_setting'
+			,array(
+			'capability'     	=> 'edit_theme_options',
+			'sanitize_callback' => 'cosmobit_sanitize_text',
+			'priority' => 1,
+		)
+	);
+
+	$wp_customize->add_control(
+	'softme_protect_options_setting',
+		array(
+			'type' => 'hidden',
+			'label' => __('Protect Setting','desert-companion'),
+			'section' => 'protect_options',
+		)
+	);
+	
+	// Hide/Show Setting
+	$wp_customize->add_setting(
+		'softme_protect_options_hide_show'
+			,array(
+			'default'     	=> '1',
+			'capability'     	=> 'edit_theme_options',
+			'sanitize_callback' => 'softme_sanitize_checkbox',
+			'priority' => 1,
+		)
+	);
+
+	$wp_customize->add_control(
+	'softme_protect_options_hide_show',
+		array(
+			'type' => 'checkbox',
+			'label' => __('Hide/Show Section','desert-companion'),
+			'section' => 'protect_options',
+		)
+	);
+	
+	/*=========================================
 	Left  Section
 	=========================================*/
 	$wp_customize->add_setting(

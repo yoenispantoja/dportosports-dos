@@ -2,8 +2,8 @@
 Theme Name: 	   NewsAlert
 Text Domain: 	   newsalert
 Template: 			newsmunch
-Version:            1.0.52
-Tested up to:       6.8
+Version:            1.0.59
+Tested up to:       6.9
 Requires at least:  4.7
 Requires PHP:       7.0
 Author:             DesertThemes
@@ -644,4 +644,27 @@ a.wp-block-button__link:focus {
 
 .dt_footer .widget_shopping_cart .button:not(.checkout):not(.add_to_cart_button) {
     background-color: var(--dt-main-color);
+}
+
+.dt_footer .widget_shopping_cart .button:not(.checkout):not(.add_to_cart_button):hover,
+.dt_footer .widget_shopping_cart .button:not(.checkout):not(.add_to_cart_button):focus {
+        background-color: var(--dt-main-color) !important;
+}
+
+.dt_footer .widget_shopping_cart a.checkout:hover, 
+.dt_footer .widget_shopping_cart a.checkout:focus {
+        background-color: var(--dt-main-color) !important;
+}
+
+.dt_footer .widget_shopping_cart span.amount {
+    color: var(--dt-text-color);
+}
+
+.dt_footer .widget_shopping_cart li img {
+   object-fit: contain !important;
+   padding-right: 10px;
+}
+
+.dt_footer .widget  .wc-block-mini-cart__badge {
+    color: #fff;
 }

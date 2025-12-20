@@ -54,7 +54,7 @@ $selective_refresh = isset( $wp_customize->selective_refresh ) ? 'postMessage' :
 	);
 	
 	$desert_activated_theme = wp_get_theme(); // gets the current theme
-	if( 'CozySoft' == $desert_activated_theme->name  || 'CareSoft' == $desert_activated_theme->name){
+	if( 'CozySoft' == $desert_activated_theme->name  || 'CareSoft' == $desert_activated_theme->name  || 'Softica' == $desert_activated_theme->name){
 	/*=========================================
 	Header  Section
 	=========================================*/
@@ -165,7 +165,7 @@ $selective_refresh = isset( $wp_customize->selective_refresh ) ? 'postMessage' :
 	);
 	
 	// Service 
-	if( 'CozySoft' == $desert_activated_theme->name || 'CareSoft' == $desert_activated_theme->name){
+	if( 'CozySoft' == $desert_activated_theme->name || 'CareSoft' == $desert_activated_theme->name  || 'Softica' == $desert_activated_theme->name){
 		$wp_customize->add_setting( 'softme_service_option2', 
 			array(
 			 'sanitize_callback' => 'softme_repeater_sanitize',

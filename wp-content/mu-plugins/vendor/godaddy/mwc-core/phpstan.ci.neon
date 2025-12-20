@@ -1,0 +1,8 @@
+includes:
+	- phpstan.neon
+
+parameters:
+	parallel:
+		# PHPStan sometimes times out if we let it use multiple processes.
+		# See https://godaddy.slack.com/archives/C093P74BDP1/p1761664129794649?thread_ts=1761216945.478799&cid=C093P74BDP1
+		maximumNumberOfProcesses: 1

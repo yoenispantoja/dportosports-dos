@@ -1,0 +1,67 @@
+{
+    "packages": [
+        {
+            "name": "auth-contrib/php-auth-library",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:gdcorp-identity/PhpAuthLibrary.git",
+                "reference": "b912f8661d8c656642c0a9db37c58355490d2380"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gdcorp-identity/PhpAuthLibrary/zipball/b912f8661d8c656642c0a9db37c58355490d2380",
+                "reference": "b912f8661d8c656642c0a9db37c58355490d2380",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-openssl": "*",
+                "php": "^7.4|^8.0|^8.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.6",
+                "phpunit/phpunit": "^9.5"
+            },
+            "time": "2025-10-02T15:56:01+00:00",
+            "default-branch": true,
+            "bin": [
+                "bin/main"
+            ],
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "GoDaddy\\Auth\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "GoDaddy\\Auth\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Milos Colakovic",
+                    "email": "mcolakovic@godaddy.com"
+                },
+                {
+                    "name": "Jeff Channell",
+                    "email": "jchannell@godaddy.com"
+                }
+            ],
+            "description": "Port of GoDaddy's Java JWT authentication library following the GoDaddy authentication standards.",
+            "support": {
+                "source": "https://github.com/gdcorp-identity/PhpAuthLibrary/tree/master",
+                "issues": "https://github.com/gdcorp-identity/PhpAuthLibrary/issues"
+            },
+            "install-path": "../auth-contrib/php-auth-library"
+        }
+    ],
+    "dev": false,
+    "dev-package-names": []
+}

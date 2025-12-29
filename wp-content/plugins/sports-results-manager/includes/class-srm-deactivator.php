@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Desactivador del plugin
  */

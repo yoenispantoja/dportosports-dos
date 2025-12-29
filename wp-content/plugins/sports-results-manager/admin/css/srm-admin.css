@@ -1,0 +1,196 @@
+﻿.srm-admin-wrap {
+    padding: 20px;
+    background: #fff;
+    margin: 20px 20px 0 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.srm-admin-wrap h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.srm-admin-header {
+    margin-bottom: 20px;
+}
+
+.srm-results-table-container {
+    overflow-x: auto;
+}
+
+.srm-sport-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #2271b1;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.srm-teams-preview {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.srm-team-logo-small {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.srm-edit-btn, .srm-delete-btn {
+    padding: 5px 10px !important;
+}
+
+.srm-delete-btn {
+    color: #b32d2e;
+}
+
+/* Modal */
+.srm-modal {
+    display: none;
+    position: fixed;
+    z-index: 100000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.srm-modal-content {
+    background-color: #fff;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.srm-modal-close {
+    color: #aaa;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.srm-modal-close:hover,
+.srm-modal-close:focus {
+    color: #000;
+}
+
+.srm-form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.srm-form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.srm-form-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #1d2327;
+}
+
+.srm-form-group input[type="text"],
+.srm-form-group input[type="number"],
+.srm-form-group input[type="datetime-local"],
+.srm-form-group select {
+    padding: 8px 12px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.srm-form-group input[type="text"]:focus,
+.srm-form-group input[type="number"]:focus,
+.srm-form-group input[type="datetime-local"]:focus,
+.srm-form-group select:focus {
+    border-color: #2271b1;
+    outline: none;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+.srm-logo-upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.srm-logo-upload input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+}
+
+.srm-logo-preview {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.srm-logo-preview img {
+    max-width: 100px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.srm-form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.srm-info-box {
+    background: #f0f6fc;
+    border: 1px solid #0969da;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.srm-info-box h3 {
+    margin-top: 0;
+    color: #0969da;
+}
+
+.srm-info-box code {
+    background: #ffffff;
+    padding: 4px 8px;
+    border-radius: 3px;
+    border: 1px solid #d0d7de;
+    font-family: 'Courier New', monospace;
+}
+
+@media (max-width: 768px) {
+    .srm-form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .srm-modal-content {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+}

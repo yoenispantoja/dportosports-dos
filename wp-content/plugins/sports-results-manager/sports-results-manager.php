@@ -1,10 +1,10 @@
-﻿<?php
+<?php
 /**
  * Plugin Name: Sports Results Manager
  * Plugin URI: https://dportosports.com
  * Description: Gestiona y visualiza resultados de eventos deportivos con shortcodes. Permite a los editores crear, editar y eliminar resultados de diferentes deportes (MLB, La Liga, NBA, Serie Nacional Cubana, etc).
- * Version: 1.0.0
- * Author: DPorto Sports
+ * Version: 1.2.1
+ * Author: Yoenis Pantoja
  * Author URI: https://dportosports.com
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -20,7 +20,7 @@ if (!defined('WPINC')) {
 /**
  * Versión actual del plugin
  */
-define('SRM_VERSION', '1.0.0');
+define('SRM_VERSION', '1.2.1');
 define('SRM_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('SRM_PLUGIN_URL', plugin_dir_url(__FILE__));
 

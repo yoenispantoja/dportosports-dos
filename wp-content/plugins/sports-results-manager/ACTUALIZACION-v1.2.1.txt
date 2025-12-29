@@ -1,0 +1,214 @@
+﻿===========================================================
+           ACTUALIZACIÓN v1.2.1 - MEJORAS DE UX
+              Sports Results Manager
+===========================================================
+
+ FECHA: 21 Diciembre 2025
+ ESTADO: LISTO PARA PRODUCCIÓN
+
+===========================================================
+ NUEVAS FUNCIONALIDADES:
+===========================================================
+
+1 OCULTAR SECCIÓN SI NO HAY RESULTADOS
+   ----------------------------------------
+   PROBLEMA: La barra de resultados aparecía en home aunque
+             no hubiera resultados cargados
+   
+   SOLUCIÓN: Ahora la sección completa se oculta cuando:
+   - No hay resultados en la base de datos
+   - La barra "Popular" vuelve a aparecer automáticamente
+   
+   IMPLEMENTACIÓN:
+   - Verificación COUNT(*) en la BD antes de renderizar
+   - Archivo: wp-content/themes/newsmunch-pro/functions.php
+   - Función: newsmunch_add_sports_results()
+
+
+2 LOGO FALLBACK AUTOMÁTICO
+   ----------------------------------------
+   PROBLEMA: Cuando un equipo no tenía logo, se mostraba
+             un placeholder con las iniciales
+   
+   SOLUCIÓN: Ahora usa el logo del sitio automáticamente
+   
+   JERARQUÍA DE FALLBACK:
+   1. Logo del equipo (si existe)
+   2. Logo personalizado del sitio (get_theme_mod(''custom_logo''))
+   3. Icono del sitio (get_site_icon_url(512))
+   4. Logo hardcoded de DPorto Sports
+   
+   IMPLEMENTACIÓN:
+   - Carga del logo al inicio del shortcode
+   - Operador ternario: $result->team1_logo ?: $site_logo_url
+   - Aplica tanto en carga inicial como en filtrado AJAX
+
+
+===========================================================
+ ARCHIVOS MODIFICADOS:
+===========================================================
+
+ sports-results-manager.php
+   - Versión: 1.2.0  1.2.1
+   - Línea 6: Version actualizada
+   - Línea 23: SRM_VERSION actualizada
+
+ public/class-srm-public.php
+   - Método: sports_results_shortcode()
+     * Líneas 33-52: Detección de logo del sitio
+     * Líneas 82-106: Uso de logo fallback en HTML
+   
+   - Método: ajax_filter_results()
+     * Líneas 158-177: Detección de logo del sitio
+     * Líneas 191-215: Uso de logo fallback en AJAX
+
+ wp-content/themes/newsmunch-pro/functions.php
+   - Función: newsmunch_add_sports_results()
+     * Líneas 555-560: Verificación COUNT(*) en BD
+     * Línea 563: Condicional if ($results_count > 0)
+
+
+===========================================================
+ CÓDIGO CLAVE IMPLEMENTADO:
+===========================================================
+
+1. VERIFICACIÓN DE RESULTADOS (functions.php):
+   ============================================
+   
+   global $wpdb;
+   $table_name = $wpdb->prefix . ''sports_results'';
+   $results_count = $wpdb->get_var("SELECT COUNT(*) FROM {$table_name}");
+   
+   if ($results_count > 0) {
+       // Mostrar carousel
+   }
+
+
+2. DETECCIÓN DE LOGO DEL SITIO (class-srm-public.php):
+   ===================================================
+   
+   $site_logo_url = '''';
+   $custom_logo_id = get_theme_mod(''custom_logo'');
+   if ($custom_logo_id) {
+       $logo_data = wp_get_attachment_image_src($custom_logo_id, ''full'');
+       if ($logo_data) {
+           $site_logo_url = $logo_data[0];
+       }
+   }
+   if (empty($site_logo_url)) {
+       $site_logo_url = get_site_icon_url(512);
+   }
+   if (empty($site_logo_url)) {
+       $site_logo_url = ''https://dportosports.com/wp-content/.../512x512-1-32x32.png'';
+   }
+
+
+3. USO DEL LOGO FALLBACK (HTML):
+   ==============================
+   
+   <img src="<?php echo esc_url($result->team1_logo ?: $site_logo_url); ?>"
+        alt="<?php echo esc_attr($result->team1_name); ?>"
+        class="srm-team-logo">
+
+
+===========================================================
+ VENTAJAS DE ESTA ACTUALIZACIÓN:
+===========================================================
+
+ MEJOR UX:
+   - Home page más limpia cuando no hay resultados
+   - No confunde al usuario con secciones vacías
+   - Retorna automáticamente a la barra "Popular"
+
+ CONSISTENCIA VISUAL:
+   - Todos los resultados tienen logo (no placeholders)
+   - Branding del sitio presente en todos los partidos
+   - Aspecto más profesional
+
+ MANTENIMIENTO REDUCIDO:
+   - No necesitas agregar logo a cada equipo
+   - El logo del sitio se actualiza automáticamente
+   - Funciona tanto en carga inicial como AJAX
+
+ PERFORMANCE:
+   - Query COUNT(*) muy rápida
+   - Evita renderizar HTML innecesario
+   - No afecta velocidad de carga
+
+
+===========================================================
+ TESTING REALIZADO:
+===========================================================
+
+ Sin resultados en BD  Sección oculta
+ Con resultados  Sección visible
+ Equipo sin logo  Muestra logo del sitio
+ Equipo con logo  Muestra logo del equipo
+ Filtrado AJAX  Logos fallback funcionan
+ Mobile responsive  Todo correcto
+
+
+===========================================================
+ MIGRACIÓN DESDE v1.2.0:
+===========================================================
+
+1. BACKUP DE LA BASE DE DATOS
+   Aunque no hay cambios en BD, siempre haz backup
+
+2. ACTUALIZAR ARCHIVOS:
+   - sports-results-manager.php
+   - public/class-srm-public.php
+   - themes/newsmunch-pro/functions.php
+
+3. LIMPIAR CACHÉ:
+   - Caché del navegador (Ctrl + Shift + Del)
+   - Caché de WordPress (si usas plugin)
+   - Caché del servidor
+
+4. VERIFICAR:
+   - Elimina todos los resultados
+   - Verifica que la sección desaparezca
+   - Agrega un resultado sin logos
+   - Verifica que use el logo del sitio
+
+
+===========================================================
+ RETROCOMPATIBILIDAD:
+===========================================================
+
+ TOTALMENTE COMPATIBLE con v1.2.0
+ No requiere cambios en BD
+ No afecta resultados existentes
+ Funciona con todos los deportes
+ Mantiene todas las funciones anteriores:
+   - Filtrado por deporte
+   - Navegación carousel
+   - Diseño compacto
+   - Tooltips
+   - Enlaces a posts
+   - Estado EN VIVO
+
+
+===========================================================
+ PRÓXIMAS MEJORAS SUGERIDAS:
+===========================================================
+
+ Caché de consultas frecuentes
+ Lazy loading de imágenes
+ Soporte para más deportes
+ Widget para sidebar
+ Estadísticas de clicks
+ Exportar/Importar resultados
+
+
+===========================================================
+
+ VERSIÓN: 1.2.1
+ CAMBIOS: 2 mejoras de UX
+ ARCHIVOS: 3 modificados
+ TESTING:  Completo
+
+ DESARROLLADOR: GitHub Copilot
+ CLIENTE: DPorto Sports
+
+===========================================================

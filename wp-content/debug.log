@@ -1,1 +1,38 @@
 [20-Dec-2025 09:59:02 UTC] objectcache.critical: Failed to initialize object cache: The `WP_REDIS_CONFIG` constant has not been defined. If it was defined, try moving it closer to the beginning of the `wp-config.php` file. For more information see: https://objectcache.pro/docs/configuration/
+[20-Dec-2025 22:57:05 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 119
+[20-Dec-2025 22:57:05 UTC] PHP Warning:  Constant WP_CONTENT_URL already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 120
+[20-Dec-2025 22:57:07 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 119
+[20-Dec-2025 22:57:07 UTC] PHP Warning:  Constant WP_CONTENT_URL already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 120
+[20-Dec-2025 22:57:13 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 119
+[20-Dec-2025 22:57:13 UTC] PHP Warning:  Constant WP_CONTENT_URL already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 120
+[20-Dec-2025 22:57:14 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 119
+[20-Dec-2025 22:57:14 UTC] PHP Warning:  Constant WP_CONTENT_URL already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 120
+[20-Dec-2025 22:58:08 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 119
+[20-Dec-2025 22:58:08 UTC] PHP Warning:  Constant WP_CONTENT_URL already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 120
+[20-Dec-2025 22:58:08 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 119
+[20-Dec-2025 22:58:08 UTC] PHP Warning:  Constant WP_CONTENT_URL already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 120
+[20-Dec-2025 22:59:52 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 119
+[20-Dec-2025 22:59:52 UTC] PHP Warning:  Constant WP_CONTENT_URL already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 120
+[20-Dec-2025 22:59:52 UTC] Error de evento de reprogramación de cron para el gancho: objectcache_metrics_snapshot. Código de error: invalid_schedule. Mensaje de error: El evento programado no existe.. Datos: {"schedule":"every_five_minutes","args":[],"interval":300}
+[20-Dec-2025 22:59:52 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 119
+[20-Dec-2025 22:59:52 UTC] PHP Warning:  Constant WP_CONTENT_URL already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 120
+[20-Dec-2025 22:59:52 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 119
+[20-Dec-2025 22:59:52 UTC] PHP Warning:  Constant WP_CONTENT_URL already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 120
+[20-Dec-2025 22:59:55 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 119
+[20-Dec-2025 22:59:55 UTC] PHP Warning:  Constant WP_CONTENT_URL already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 120
+[20-Dec-2025 23:00:02 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 119
+[20-Dec-2025 23:00:02 UTC] PHP Warning:  Constant WP_CONTENT_URL already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 120
+[20-Dec-2025 23:00:03 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 119
+[20-Dec-2025 23:00:03 UTC] PHP Warning:  Constant WP_CONTENT_URL already defined in D:\xampp\htdocs\dportosports\wp-config.php on line 120
+[20-Dec-2025 23:46:26 UTC] PHP Notice:  La función wp_enqueue_script() ha sido llamada <strong>de forma incorrecta</strong>. El script «wp-editor» no debe ponerse en cola junto con el nuevo editor de widgets (wp-edit-widgets o wp-customize-widgets). Por favor, ve <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">depuración en WordPress</a> para más información. (Este mensaje fue añadido en la versión 5.8.0). in D:\xampp\htdocs\dportosports\wp-includes\functions.php on line 6121
+[21-Dec-2025 10:43:17 UTC] Automatic updates starting...
+[21-Dec-2025 10:43:18 UTC]   Automatic plugin updates starting...
+[21-Dec-2025 10:43:18 UTC]   Automatic plugin updates complete.
+[21-Dec-2025 10:43:18 UTC] Automatic updates complete.
+[23-Dec-2025 12:57:58 UTC] Error de evento de reprogramación de cron para el gancho: wpaas_smart_update_cleanup_hook. Código de error: invalid_schedule. Mensaje de error: El evento programado no existe.. Datos: {"schedule":"two_days_seconds","args":[],"interval":172800}
+[23-Dec-2025 12:57:58 UTC] Automatic updates starting...
+[23-Dec-2025 12:57:59 UTC]   Automatic plugin updates starting...
+[23-Dec-2025 12:57:59 UTC]   Automatic plugin updates complete.
+[23-Dec-2025 12:58:00 UTC] Automatic updates complete.
+[25-Dec-2025 08:55:31 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in D:\xampp\htdocs\dportosports\wp-includes\class-wpdb.php on line 1988
+[25-Dec-2025 08:55:37 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in D:\xampp\htdocs\dportosports\wp-includes\class-wpdb.php on line 1988

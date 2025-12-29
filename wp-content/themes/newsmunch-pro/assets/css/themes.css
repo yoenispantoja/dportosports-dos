@@ -5141,7 +5141,7 @@ div.dt-d-inline-block {
                 transform: translateX(0rem);
     }
 }
-  
+
 @keyframes preloaderAnimation {
     0% {
         -webkit-transform: translateX(0rem);
@@ -5330,32 +5330,32 @@ div.dt-d-inline-block {
       -webkit-transform: scale3d(1, 1, 1);
       transform: scale3d(1, 1, 1);
     }
-  
+
     30% {
       -webkit-transform: scale3d(1.25, 0.75, 1);
       transform: scale3d(1.25, 0.75, 1);
     }
-  
+
     40% {
       -webkit-transform: scale3d(0.75, 1.25, 1);
       transform: scale3d(0.75, 1.25, 1);
     }
-  
+
     50% {
       -webkit-transform: scale3d(1.15, 0.85, 1);
       transform: scale3d(1.15, 0.85, 1);
     }
-  
+
     65% {
       -webkit-transform: scale3d(.95, 1.05, 1);
       transform: scale3d(.95, 1.05, 1);
     }
-  
+
     75% {
       -webkit-transform: scale3d(1.05, .95, 1);
       transform: scale3d(1.05, .95, 1);
     }
-  
+
     to {
       -webkit-transform: scale3d(1, 1, 1);
       transform: scale3d(1, 1, 1);
@@ -6520,7 +6520,7 @@ button.dt_navbar-sidebar-toggle {
 }
 
 .dt_sidebar-toggle .off--layer {
-    right: -100%;    
+    right: -100%;
     visibility: hidden;
 }
 
@@ -7858,7 +7858,7 @@ html body .header--two+.exclusive-wrapper {
 }
 
 /*=================================================================*/
-/*                      Breadcrumbs                              
+/*                      Breadcrumbs
 /*=================================================================*/
 
 .breadcrumbs {
@@ -7885,18 +7885,18 @@ html body .header--two+.exclusive-wrapper {
     content: "\/";
 }
 
-.breadcrumb li a {    
+.breadcrumb li a {
     text-decoration: none;
 }
 
 .breadcrumb li a:not(:hover, :focus),
 .breadcrumb li,
-.breadcrumb li:not(:first-child):before {    
+.breadcrumb li:not(:first-child):before {
     color: var(--dt-secondary-color);
 }
 
 /*=================================================================*/
-/*                      SECTIONS                              
+/*                      SECTIONS
 /*=================================================================*/
 
 section,
@@ -8223,7 +8223,7 @@ main {
 }
 
 /*=================================================================*/
-/*                      POST                              
+/*                      POST
 /*=================================================================*/
 
 .page-template-author .post+.post {
@@ -8427,7 +8427,7 @@ main {
 .post .thumb img {
     -o-object-fit: cover;
     object-fit: cover;
-    width: 100%;    
+    width: 100%;
     height: 100%;
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -9235,7 +9235,7 @@ main {
 .post+.featured-post-lg,
 .post+.featured-post-xl,
 .post+.post[class*="dt-col-"],
-.post-carousel-banner .post+.post {    
+.post-carousel-banner .post+.post {
     margin-top: 0;
 }
 
@@ -9256,13 +9256,13 @@ main {
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 2.6rem;
+    padding: 2rem 2.6rem 2.6rem;
     z-index: 2;
     overflow: hidden;
 }
 
 .slick-dotted .featured-post-lg .details {
-    padding: 2.6rem 2.6rem 5.8rem;
+    padding: 2rem 2.6rem 5.8rem;
 }
 
 .featured-post-lg .details:after {
@@ -9274,11 +9274,18 @@ main {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: linear-gradient(to top, #191c20 0, #191c20f2 calc(100% - 150px), #191c2000 92%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 25%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.2) 75%, rgba(0, 0, 0, 0) 100%);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
 }
 
 .featured-post-lg .post-title {
     font-size: 32px;
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 1),
+        0 2px 6px rgba(0, 0, 0, 0.9),
+        0 4px 12px rgba(0, 0, 0, 0.8),
+        0 8px 24px rgba(0, 0, 0, 0.6);
 }
 
 .featured-post-lg .post-title a,
@@ -9295,17 +9302,20 @@ main {
 }
 
 .featured-post-lg .meta {
-    color: rgba(255, 255, 255, .6);
+    color: rgba(255, 255, 255, .95);
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 1),
+        0 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 .featured-post-lg .meta li:after {
     content: "";
-    background: rgba(255, 255, 255, .6);
+    background: rgba(255, 255, 255, .95);
 }
 
 .featured-post-lg .meta .edit-post-link a,
 .featured-post-lg .meta li a {
-    color: rgba(255, 255, 255, .6);
+    color: rgba(255, 255, 255, .95);
 }
 
 .featured-post-lg .thumb .inner {
@@ -9316,6 +9326,14 @@ main {
     transition: all .3s ease-in-out;
     -webkit-transform: scale(1);
     transform: scale(1);
+}
+
+.featured-post-lg .category-badge a {
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.6),
+        0 4px 16px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .main-featured-section .post .thumb .inner,
@@ -9597,7 +9615,7 @@ main {
 }
 
 /*=================================================================*/
-/*                      ABOUT AUTHOR                              
+/*                      ABOUT AUTHOR
 /*=================================================================*/
 
 .author-page.about-author {
@@ -9615,7 +9633,7 @@ main {
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
 }
 
-.is-single+.about-author {    
+.is-single+.about-author {
     margin-top: 50px;
 }
 
@@ -9670,7 +9688,7 @@ main {
 }
 
 /*=================================================================*/
-/*                      Post Single                              
+/*                      Post Single
 /*=================================================================*/
 
 .nextprev-post-wrapper {
@@ -9800,7 +9818,7 @@ main {
 }
 
 /*=================================================================*/
-/*                      POST COMMENTS                              
+/*                      POST COMMENTS
 /*=================================================================*/
 
 .comments-area {
@@ -10151,7 +10169,7 @@ main {
 }
 
 /*=================================================================*/
-/*                      WIDGETS                              
+/*                      WIDGETS
 /*=================================================================*/
 
 .widget .widget-ads {
@@ -10487,7 +10505,7 @@ main {
 }
 
 /*=================================================================*/
-/*                      Pagination                              
+/*                      Pagination
 /*=================================================================*/
 
 .pagination {
@@ -10508,7 +10526,7 @@ main {
 	justify-content: center;
 }
 
-.navigation.pagination .nav-links > * {	
+.navigation.pagination .nav-links > * {
     margin: 0 5px;
 }
 
@@ -10572,7 +10590,7 @@ main {
 }
 
 /*=================================================================*/
-/*                      Page Header                            
+/*                      Page Header
 /*=================================================================*/
 
 .page-header.style-2 .dt-container-md .dt-row .dt-col-12 > div,
@@ -10779,7 +10797,7 @@ main {
         opacity: 0.8;
         transform: scale(0.9);
     }
-    
+
     100% {
         transform: scale(1.5);
         opacity: 0;
@@ -10790,7 +10808,7 @@ main {
     0% {
         transform: scale(0.9);
     }
-    
+
     100% {
         transform: scale(1.9);
         opacity: 0;
@@ -11155,7 +11173,7 @@ main {
 }
 
 /*=================================================================*/
-/*                      404                              
+/*                      404
 /*=================================================================*/
 
 .dt_not_found {
@@ -11328,7 +11346,7 @@ main {
 
 
 /*=================================================================*/
-/*                      Footer                              
+/*                      Footer
 /*=================================================================*/
 
 .dt_footer {
@@ -11475,7 +11493,7 @@ button.dt_uptop {
 }
 
 /*=================================================================*/
-/*                      Post Columns Grid                              
+/*                      Post Columns Grid
 /*=================================================================*/
 
 .main-banner-section.overlay_bg {
@@ -11589,7 +11607,7 @@ button.dt_uptop {
 }
 
 /*=================================================================*/
-/*                      Post Load More                              
+/*                      Post Load More
 /*=================================================================*/
 
 .woocommerce-pagination,
@@ -11685,10 +11703,10 @@ button.dt_uptop {
 }
 
 /*=================================================================*/
-/*                      Top Tags                              
+/*                      Top Tags
 /*=================================================================*/
 
-.exclusive-wrapper {    
+.exclusive-wrapper {
     margin: 0 0 35px;
     background-color: #fff;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
@@ -11742,7 +11760,7 @@ button.dt_uptop {
 }
 
 /*=================================================================*/
-/*                      Exclusive                              
+/*                      Exclusive
 /*=================================================================*/
 .exclusive-posts {
     font-size: 14px;

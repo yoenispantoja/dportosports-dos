@@ -98,9 +98,9 @@ define('WPLANG', 'es_ES');
  * visit the documentation.
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
-define( 'WP_DEBUG_LOG', false );
-define( 'WP_DEBUG_DISPLAY', false );
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
+define( 'WP_DEBUG_DISPLAY', true );
 @ini_set( 'display_errors', 1 );
 
 // Aumentar el límite de memoria de WordPress
@@ -114,3 +114,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
+define( 'UPLOADS', 'wp-content/uploads' );
+

@@ -6,10 +6,10 @@
  *
  * @package NewsMunch
  */
- 
+
 if ( ! function_exists( 'newsmunch_theme_setup' ) ) :
 function newsmunch_theme_setup() {
-	
+
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
@@ -17,10 +17,10 @@ function newsmunch_theme_setup() {
 	 * to change 'NewsMunch' to the name of your theme in all the template files.
 	 */
 	load_theme_textdomain( 'newsmunch-pro' );
-	
+
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
-	
+
 	/*
 	 * Let WordPress manage the document title.
 	 * By adding theme support, we declare that this theme does not use a
@@ -28,36 +28,36 @@ function newsmunch_theme_setup() {
 	 * provide it for us.
 	 */
 	add_theme_support( 'title-tag' );
-	
+
 	add_theme_support( 'custom-header' );
-	
+
 	add_theme_support( 'post-formats', array( 'gallery', 'quote', 'video', 'aside', 'image', 'link', 'audio', 'status', 'chat' ) );
-	
+
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
-	
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary_menu' => esc_html__( 'Primary Menu', 'newsmunch-pro' )
 	) );
-	
+
 	//Add selective refresh for sidebar widget
 	add_theme_support( 'customize-selective-refresh-widgets' );
-	
+
 	// woocommerce support
 	add_theme_support( 'woocommerce' );
-	
+
 	/**
 	 * Add support for core custom logo.
 	 *
 	 * @link https://codex.wordpress.org/Theme_Logo
 	 */
 	add_theme_support('custom-logo');
-	
+
 	/**
 	 * Custom background support.
 	 */
@@ -65,7 +65,7 @@ function newsmunch_theme_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
-	
+
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
@@ -77,13 +77,13 @@ function newsmunch_theme_setup() {
 		'gallery',
 		'caption',
 	) );
-	
+
 	/**
 	 * Set default content width.
 	 */
 	if ( ! isset( $content_width ) ) {
 		$content_width = 800;
-	}	
+	}
 }
 endif;
 add_action( 'after_setup_theme', 'newsmunch_theme_setup' );
@@ -95,7 +95,7 @@ add_action( 'after_setup_theme', 'newsmunch_theme_setup' );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 
-function newsmunch_widgets_init() {	
+function newsmunch_widgets_init() {
 	if ( class_exists( 'WooCommerce' ) ) {
 		register_sidebar( array(
 			'name' => __( 'WooCommerce Widget Area', 'newsmunch-pro' ),
@@ -107,7 +107,7 @@ function newsmunch_widgets_init() {
 			'after_title' => '</h4></div>',
 		) );
 	}
-	
+
 	register_sidebar( array(
 		'name' => __( 'Sidebar Widget Area', 'newsmunch-pro' ),
 		'id' => 'newsmunch-sidebar-primary',
@@ -117,7 +117,7 @@ function newsmunch_widgets_init() {
 		'before_title' => '<div class="widget-header"><h4 class="widget-title">',
 		'after_title' => '</h4></div>',
 	) );
-	
+
 	register_sidebar( array(
 		'name'          => esc_html__( 'Front Page Left Sidebar Section', 'newsmunch-pro'),
 		'id'            => 'frontpage-left-sidebar',
@@ -127,7 +127,7 @@ function newsmunch_widgets_init() {
 		'before_title'  => '<div class="widget-header"><h4 class="widget-title">',
 		'after_title'   => '</h4></div>',
 	) );
-	
+
 	register_sidebar( array(
 		'name'          => esc_html__( 'Front page Content Section', 'newsmunch-pro'),
 		'id'            => 'frontpage-content',
@@ -147,7 +147,7 @@ function newsmunch_widgets_init() {
 		'before_title'  => '<div class="widget-header"><h4 class="widget-title">',
 		'after_title'   => '</h4></div>',
 	) );
-	
+
 	register_sidebar( array(
 		'name'          => esc_html__( 'Menu Side Docker Widget Area', 'newsmunch-pro'),
 		'id'            => 'menu-side-docker-area',
@@ -157,9 +157,9 @@ function newsmunch_widgets_init() {
 		'before_title'  => '<div class="widget-header"><h4 class="widget-title">',
 		'after_title'   => '</h4></div>',
 	) );
-	
-	
-	
+
+
+
 	$newsmunch_footer_widget_column = get_theme_mod('newsmunch_footer_widget_column','4');
 	for ($i=1; $i<=$newsmunch_footer_widget_column; $i++) {
 		register_sidebar( array(
@@ -180,64 +180,64 @@ add_action( 'widgets_init', 'newsmunch_widgets_init' );
  * Enqueue scripts and styles.
  */
 function newsmunch_scripts() {
-	
+
 	/**
 	 * Styles.
 	 */
-	// Slick	
+	// Slick
 	wp_enqueue_style('slick',get_template_directory_uri().'/assets/vendors/css/slick.css');
-	
+
 	// Font Awesome
 	wp_enqueue_style('all-css',get_template_directory_uri().'/assets/vendors/css/all.min.css');
-	
+
 	// Animate
 	wp_enqueue_style('animate',get_template_directory_uri().'/assets/vendors/css/animate.min.css');
 
 	// Fancybox
 	wp_enqueue_style('Fancybox',get_template_directory_uri().'/assets/vendors/css/jquery.fancybox.min.css');
-	
+
 	// sliderPro
 	wp_enqueue_style('sliderPro',get_template_directory_uri().'/assets/vendors/css/slider-pro.min.css');
-	
+
 	// NewsMunch Core
 	wp_enqueue_style('newsmunch-core',get_template_directory_uri().'/assets/css/core.css');
 
 	// NewsMunch Theme
-	wp_enqueue_style('newsmunch-theme', get_template_directory_uri() . '/assets/css/themes.css');
-	
+	wp_enqueue_style('newsmunch-theme', get_template_directory_uri() . '/assets/css/themes.css', array(), filemtime(get_template_directory() . '/assets/css/themes.css'));
+
 	// NewsMunch WooCommerce
 	wp_enqueue_style('newsmunch-woocommerce',get_template_directory_uri().'/assets/css/woo-styles.css');
-	
+
 	// NewsMunch Dark
 	wp_enqueue_style('newsmunch-dark',get_template_directory_uri().'/assets/css/dark.css');
-	
+
 	// NewsMunch Responsive
 	wp_enqueue_style('newsmunch-responsive',get_template_directory_uri().'/assets/css/responsive.css');
-	
+
 	// NewsMunch Style
 	wp_enqueue_style( 'newsmunch-style', get_stylesheet_uri() );
-	
+
 	// Scripts
 	wp_enqueue_script( 'jquery' );
-	
+
 	// Masonry
 	wp_enqueue_script( 'masonry' );
-	
+
 	// Owl Crousel
 	wp_enqueue_script('slick', get_template_directory_uri() . '/assets/vendors/js/slick.min.js', array('jquery'), true);
-	
+
 	// Wow
 	wp_enqueue_script('wow-min', get_template_directory_uri() . '/assets/vendors/js/wow.min.js', array('jquery'), false, true);
-	
+
 	// fancybox
 	wp_enqueue_script('fancybox', get_template_directory_uri() . '/assets/vendors/js/jquery.fancybox.js', array('jquery'), false, true);
-	
+
 	// marquee
 	wp_enqueue_script('marquee', get_template_directory_uri() . '/assets/vendors/js/jquery.marquee.js', array('jquery'), false, true);
-	
+
 	// sliderPro
 	wp_enqueue_script('sliderPro', get_template_directory_uri() . '/assets/vendors/js/jquery.sliderPro.min.js', array('jquery'), false, true);
-	
+
 	// NewsMunch Theme
 	wp_enqueue_script('newsmunch-theme', get_template_directory_uri() . '/assets/js/theme.js', array('jquery'), false, true);
 
@@ -258,23 +258,23 @@ add_action( 'wp_enqueue_scripts', 'newsmunch_scripts' );
     function newsmunch_user_custom_style() {
 
 		$newsmunch_print_style = '';
-		
-			
+
+
 		 /*=========================================
 		 NewsMunch Page Title
 		=========================================*/
 		 $newsmunch_print_style   .=  newsmunch_customizer_value( 'newsmunch_breadcrumb_title_size', '.page-header h1', array( 'font-size' ), array( 30, 30, 30 ), 'px' );
 		  $newsmunch_print_style   .=  newsmunch_customizer_value( 'newsmunch_breadcrumb_content_size', '.page-header .breadcrumb li', array( 'font-size' ), array( 15, 15, 15 ), 'px' );
-		
-		
-	
+
+
+
 		 /*=========================================
 		 NewsMunch Logo Size
 		=========================================*/
 		$newsmunch_print_style   .= newsmunch_customizer_value( 'hdr_logo_size', '.site--logo img', array( 'max-width' ), array( 150, 150, 150 ), 'px !important' );
 		$newsmunch_print_style   .= newsmunch_customizer_value( 'hdr_site_title_size', '.site--logo .site--title', array( 'font-size' ), array( 55, 55, 55 ), 'px !important' );
 		$newsmunch_print_style   .= newsmunch_customizer_value( 'hdr_site_desc_size', '.site--logo .site--description', array( 'font-size' ), array( 16, 16, 16 ), 'px !important' );
-		
+
 		/*=========================================
 		NewsMunch Theme Color
 		=========================================*/
@@ -288,32 +288,32 @@ add_action( 'wp_enqueue_scripts', 'newsmunch_scripts' );
 				$newsmunch_print_style .=":root {
 						--dt-main-rgb: $color1, $color2, $color3;
 					}\n";
-			}	
-			
+			}
+
 			if($newsmunch_enable_custom_color == '1') {
 				$newsmunch_print_style .=":root {
 						--dt-main-rgb: $color4, $color5, $color6;
 						--dt-secondary-color: " .esc_attr($newsmunch_secondary_color). ";
-					}\n";	
+					}\n";
 			}
-			
+
 		$newsmunch_site_container_width 			 = get_theme_mod('newsmunch_site_container_width','2000');
 			if($newsmunch_site_container_width >=768 && $newsmunch_site_container_width <=2000){
 				$newsmunch_print_style .=".dt-container-md,.dt__slider-main .owl-dots {
 						max-width: " .esc_attr($newsmunch_site_container_width). "px;
 					}\n";
 			}
-		
+
 		$newsmunch_btn_border_radius 			 = get_theme_mod('newsmunch_btn_border_radius','0');
 		$newsmunch_print_style .="button[type=submit], button, input[type='button'], input[type='reset'], input[type='submit'], .dt-btn, .button:not(.add_to_cart_button),.btn--effect-one .dt-btn {
 						border-radius: " .esc_attr($newsmunch_btn_border_radius). "px;
 					}\n";
-					
+
 		/**
 		 *  Sidebar Width
 		 */
 		$newsmunch_sidebar_width = get_theme_mod('newsmunch_sidebar_width',33);
-		if($newsmunch_sidebar_width !== '') { 
+		if($newsmunch_sidebar_width !== '') {
 			$newsmunch_primary_width   = absint( 100 - $newsmunch_sidebar_width );
 				$newsmunch_print_style .="	@media (min-width: 992px) {#dt-main {
 					max-width:" .esc_attr($newsmunch_primary_width). "%;
@@ -325,7 +325,7 @@ add_action( 'wp_enqueue_scripts', 'newsmunch_scripts' );
 				}}\n";
         }
 		$newsmunch_print_style   .= newsmunch_customizer_value( 'newsmunch_widget_ttl_size', '.widget-header .widget-title', array( 'font-size' ), array( 24, 24, 24 ), 'px !important' );
-		
+
 		/**
 		 *  Typography Body
 		 */
@@ -334,33 +334,33 @@ add_action( 'wp_enqueue_scripts', 'newsmunch_scripts' );
 		 $newsmunch_body_text_transform_option	 = get_theme_mod('newsmunch_body_text_transform_option','inherit');
 		 $newsmunch_body_font_style_option	 	 = get_theme_mod('newsmunch_body_font_style_option','inherit');
 		 $newsmunch_body_txt_decoration_option	 = get_theme_mod('newsmunch_body_txt_decoration_option','none');
-		
+
 		 $newsmunch_print_style   .= newsmunch_customizer_value( 'newsmunch_body_font_size_option', 'body', array( 'font-size' ), array( 16, 16, 16 ), 'px' );
 		 $newsmunch_print_style   .= newsmunch_customizer_value( 'newsmunch_body_line_height_option', 'body', array( 'line-height' ), array( 1.6, 1.6, 1.6 ) );
 		 $newsmunch_print_style   .= newsmunch_customizer_value( 'newsmunch_body_ltr_space_option', 'body', array( 'letter-spacing' ), array( 0, 0, 0 ), 'px' );
-		 if($newsmunch_body_font_family_option !== '') { 
+		 if($newsmunch_body_font_family_option !== '') {
 			if ( $newsmunch_body_font_family_option && ( strpos( $newsmunch_body_font_family_option, ',' ) != true ) ) {
 				newsmunch_enqueue_google_font($newsmunch_body_font_family_option);
-			}	
+			}
 			 $newsmunch_print_style .=" body{ font-family: " .esc_attr($newsmunch_body_font_family_option). ";	}\n";
 		 }
-		 $newsmunch_print_style .=" body{ 
+		 $newsmunch_print_style .=" body{
 			font-weight: " .esc_attr($newsmunch_body_font_weight_option). ";
 			text-transform: " .esc_attr($newsmunch_body_text_transform_option). ";
 			font-style: " .esc_attr($newsmunch_body_font_style_option). ";
 			text-decoration: " .esc_attr($newsmunch_body_txt_decoration_option). ";
-		}\n";		 
-		
+		}\n";
+
 		/**
 		 *  Typography Heading
 		 */
 		 for ( $i = 1; $i <= 6; $i++ ) {
-			 $newsmunch_heading_font_family_option	    = get_theme_mod('newsmunch_h' . $i . '_font_family_option','');	
+			 $newsmunch_heading_font_family_option	    = get_theme_mod('newsmunch_h' . $i . '_font_family_option','');
 			 $newsmunch_heading_font_weight_option	 	= get_theme_mod('newsmunch_h' . $i . '_font_weight_option','700');
 			 $newsmunch_heading_text_transform_option 	= get_theme_mod('newsmunch_h' . $i . '_text_transform_option','inherit');
 			 $newsmunch_heading_font_style_option	 	= get_theme_mod('newsmunch_h' . $i . '_font_style_option','inherit');
 			 $newsmunch_heading_txt_decoration_option	= get_theme_mod('newsmunch_h' . $i . '_txt_decoration_option','inherit');
-			 
+
 			 $newsmunch_print_style   .= newsmunch_customizer_value( 'newsmunch_h' . $i . '_font_size_option', 'h' . $i .'', array( 'font-size' ), array( 36, 36, 36 ), 'px' );
 			 $newsmunch_print_style   .= newsmunch_customizer_value( 'newsmunch_h' . $i . '_line_height_option', 'h' . $i . '', array( 'line-height' ), array( 1.2, 1.2, 1.2 ) );
 			 $newsmunch_print_style   .= newsmunch_customizer_value( 'newsmunch_h' . $i . '_ltr_space_option', 'h' . $i . '', array( 'letter-spacing' ), array( 0, 0, 0 ), 'px' );
@@ -368,8 +368,8 @@ add_action( 'wp_enqueue_scripts', 'newsmunch_scripts' );
 				  if ( $newsmunch_heading_font_family_option && ( strpos( $newsmunch_heading_font_family_option, ',' ) != true ) ) {
 					newsmunch_enqueue_google_font($newsmunch_heading_font_family_option);
 				  }
-			  }	
-			 $newsmunch_print_style .=" h" . $i . "{ 
+			  }
+			 $newsmunch_print_style .=" h" . $i . "{
 				font-family: " .esc_attr($newsmunch_heading_font_family_option). ";
 				font-weight: " .esc_attr($newsmunch_heading_font_weight_option). ";
 				text-transform: " .esc_attr($newsmunch_heading_text_transform_option). ";
@@ -377,18 +377,18 @@ add_action( 'wp_enqueue_scripts', 'newsmunch_scripts' );
 				text-decoration: " .esc_attr($newsmunch_heading_txt_decoration_option). ";
 			}\n";
 		 }
-		
-		
+
+
 		/*=========================================
-		Post Format 
+		Post Format
 		=========================================*/
 		// $newsmunch_hs_latest_post_format_icon			= get_theme_mod('newsmunch_hs_latest_post_format_icon','1');
 		// if($newsmunch_hs_latest_post_format_icon !=='1'):
-			 // $newsmunch_print_style .=".post .post-format, .post .post-format-sm{ 
+			 // $newsmunch_print_style .=".post .post-format, .post .post-format-sm{
 				    // display: none;
 			// }\n";
 		// endif;
-		
+
 		/*=========================================
 		Mainfeatured Section
 		=========================================*/
@@ -408,15 +408,15 @@ add_action( 'wp_enqueue_scripts', 'newsmunch_scripts' );
 				// background-color: #fff;
 			// }\n";
 		// endif;
-		
+
 		/*=========================================
-		Footer 
+		Footer
 		=========================================*/
 		$newsmunch_footer_style			= get_theme_mod('newsmunch_footer_style','footer-dark');
 		$newsmunch_footer_text_color	= get_theme_mod('newsmunch_footer_text_color','#5c6777');
 		$newsmunch_footer_bg_color		= get_theme_mod('newsmunch_footer_bg_color','#121418');
 		if($newsmunch_footer_style=='footer-dark'):
-			 $newsmunch_print_style .=".footer-dark{ 
+			 $newsmunch_print_style .=".footer-dark{
 					--dt-text-color:  ".esc_attr($newsmunch_footer_text_color).";
 				    background-color: ".esc_attr($newsmunch_footer_bg_color).";
 			}\n";
@@ -430,7 +430,7 @@ add_action( 'wp_enqueue_scripts', 'newsmunch_user_custom_style' );
 /**
  * Define Constants
  */
- 
+
 $newsmunch_theme = wp_get_theme();
 define( 'NEWSMUNCH_THEME_VERSION', $newsmunch_theme->get( 'Version' ) );
 
@@ -460,7 +460,7 @@ require_once get_template_directory() . '/inc/hooks.php';
  require_once get_template_directory() . '/inc/customizer/newsmunch-customizer.php';
  require get_template_directory() . '/inc/customizer/controls/code/customizer-repeater/inc/customizer.php';
  require get_template_directory() . '/inc/customizer/customizer-repeater-default.php';
- 
+
 /**
  * Nav Walker for Bootstrap Dropdown Menu.
  */
@@ -545,3 +545,90 @@ if (!function_exists('newsmunch_cf7_button_handler')) {
 		return $html;
 	}
 }
+
+/**
+ * Add Sports Results Carousel on All Pages
+ * Shows sports results bar on home, posts, pages, and all other pages
+ */
+if (!function_exists('newsmunch_add_sports_results')) {
+	function newsmunch_add_sports_results() {
+		// Prevenir duplicados - solo ejecutar una vez por página
+		static $already_displayed = false;
+		if ($already_displayed) {
+			return;
+		}
+		$already_displayed = true;
+
+		// Verificar si hay resultados antes de mostrar la sección
+		global $wpdb;
+		$table_name = $wpdb->prefix . 'sports_results';
+		$results_count = $wpdb->get_var("SELECT COUNT(*) FROM {$table_name}");
+
+		// Solo mostrar si hay resultados
+		if ($results_count > 0) {
+			?>
+			<style>.exclusive-posts.clearfix { display: none !important; }</style>
+			<div class="sports-results-wrapper" style="width: 100%; padding: 10px 0; background: #0a0a0a; margin-bottom:30px;">
+				<div class="dt-container-md">
+					<?php echo do_shortcode('[sports_results]'); ?>
+				</div>
+			</div>
+			<?php
+		}
+	}
+}
+
+/**
+ * Display Sports Results in homepage
+ */
+add_action('newsmunch_top_tags_option_after', 'newsmunch_add_sports_results', 10);
+
+/**
+ * Display Sports Results in single posts, pages and archives
+ * Using template_redirect to inject at the right time
+ */
+function newsmunch_inject_sports_results() {
+	// Solo en páginas que NO son frontpage/home
+	if (!is_front_page() && !is_home()) {
+		add_action('get_header', 'newsmunch_add_sports_results_after_header');
+	}
+}
+add_action('template_redirect', 'newsmunch_inject_sports_results');
+
+function newsmunch_add_sports_results_after_header() {
+	ob_start();
+	newsmunch_add_sports_results();
+	$sports_results = ob_get_clean();
+
+	// Insertar después del header
+	add_action('wp_footer', function() use ($sports_results) {
+		?>
+		<script>
+		jQuery(document).ready(function($) {
+			var sportsResults = <?php echo json_encode($sports_results); ?>;
+			// Insertar después del header y antes del content
+			if ($('#content').length) {
+				$(sportsResults).insertBefore('#content');
+			} else if ($('.site-content').length) {
+				$(sportsResults).insertBefore('.site-content');
+			}
+		});
+		</script>
+		<?php
+	}, 999);
+}
+
+/**
+ * Add custom CSS to hide category badges in latest news section
+ */
+function newsmunch_hide_category_badges() {
+	?>
+	<style>
+		/* Ocultar badges de categorías en todas las secciones de posts */
+		.post .category-badge {
+			display: none !important;
+		}
+	</style>
+	<?php
+}
+add_action('wp_head', 'newsmunch_hide_category_badges');

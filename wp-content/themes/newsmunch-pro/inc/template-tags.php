@@ -15,35 +15,35 @@ function newsmunch_theme_page_header_title(){
 	{
 		echo '<h1>';
 		if ( is_day() ) :
-		/* translators: %1$s %2$s: date */	
-		  printf( esc_html__( '%1$s %2$s', 'newsmunch-pro' ), esc_html__('Archives','newsmunch-pro'), get_the_date() );  
+		/* translators: %1$s %2$s: date */
+		  printf( esc_html__( '%1$s %2$s', 'newsmunch-pro' ), esc_html__('Archives','newsmunch-pro'), get_the_date() );
         elseif ( is_month() ) :
-		/* translators: %1$s %2$s: month */	
+		/* translators: %1$s %2$s: month */
 		  printf( esc_html__( '%1$s %2$s', 'newsmunch-pro' ), esc_html__('Archives','newsmunch-pro'), get_the_date( 'F Y' ) );
         elseif ( is_year() ) :
-		/* translators: %1$s %2$s: year */	
+		/* translators: %1$s %2$s: year */
 		  printf( esc_html__( '%1$s %2$s', 'newsmunch-pro' ), esc_html__('Archives','newsmunch-pro'), get_the_date( 'Y' ) );
 		elseif( is_author() ):
-		/* translators: %1$s %2$s: author */	
+		/* translators: %1$s %2$s: author */
 			printf( esc_html__( '%1$s %2$s', 'newsmunch-pro' ), esc_html__('All posts by','newsmunch-pro'), get_the_author() );
         elseif( is_category() ):
-		/* translators: %1$s %2$s: category */	
+		/* translators: %1$s %2$s: category */
 			printf( esc_html__( '%1$s %2$s', 'newsmunch-pro' ), esc_html__('Category','newsmunch-pro'), single_cat_title( '', false ) );
 		elseif( is_tag() ):
-		/* translators: %1$s %2$s: tag */	
+		/* translators: %1$s %2$s: tag */
 			printf( esc_html__( '%1$s %2$s', 'newsmunch-pro' ), esc_html__('Tag','newsmunch-pro'), single_tag_title( '', false ) );
 		elseif( class_exists( 'WooCommerce' ) && is_shop() ):
-		/* translators: %1$s %2$s: WooCommerce */	
+		/* translators: %1$s %2$s: WooCommerce */
 			printf( esc_html__( '%1$s %2$s', 'newsmunch-pro' ), esc_html__('Shop','newsmunch-pro'), single_tag_title( '', false ));
-        elseif( is_archive() ): 
-		the_archive_title( '<h1>', '</h1>' ); 
+        elseif( is_archive() ):
+		the_archive_title( '<h1>', '</h1>' );
 		endif;
 		echo '</h1>';
 	}
 	elseif( is_404() )
 	{
 		echo '<h1>';
-		/* translators: %1$s: 404 */	
+		/* translators: %1$s: 404 */
 		printf( esc_html__( '%1$s ', 'newsmunch-pro' ) , esc_html__('404','newsmunch-pro') );
 		echo '</h1>';
 	}
@@ -83,10 +83,10 @@ function newsmunch_page_url() {
  * Theme Breadcrumbs
 */
 if( !function_exists('newsmunch_page_header_breadcrumbs') ):
-	function newsmunch_page_header_breadcrumbs() { 	
+	function newsmunch_page_header_breadcrumbs() {
 		global $post;
 		$homeLink = home_url();
-								
+
 			if (is_home() || is_front_page()) :
 				echo '<li class="breadcrumb-item"><a href="'.$homeLink.'">'.__('Home','newsmunch-pro').'</a></li>';
 	            echo '<li class="breadcrumb-item active">'; echo single_post_title(); echo '</li>';
@@ -103,15 +103,15 @@ if( !function_exists('newsmunch_page_header_breadcrumbs') ):
 					echo '<li class="breadcrumb-item active"><a href="'. newsmunch_page_url() .'">'. get_the_time('F') .'</a></li>';
 				} elseif ( is_year() ) {
 				    echo '<li class="breadcrumb-item active"><a href="'. newsmunch_page_url() .'">'. get_the_time('Y') .'</a></li>';
-				} elseif ( is_single() && !is_attachment() && is_page('single-product') ) {					
+				} elseif ( is_single() && !is_attachment() && is_page('single-product') ) {
 				if ( get_post_type() != 'post' ) {
-					$cat = get_the_category(); 
+					$cat = get_the_category();
 					$cat = $cat[0];
 					echo '<li class="breadcrumb-item">';
 					echo get_category_parents($cat, TRUE, '');
 					echo '</li>';
 					echo '<li class="breadcrumb-item active"><a href="' . newsmunch_page_url() . '">'. get_the_title() .'</a></li>';
-				} }  
+				} }
 					elseif ( is_page() && $post->post_parent ) {
 				    $parent_id  = $post->post_parent;
 					$breadcrumbs = array();
@@ -132,7 +132,7 @@ if( !function_exists('newsmunch_page_header_breadcrumbs') ):
 					{
 						echo '<li class="breadcrumb-item active"><a href="' . newsmunch_page_url() . '">'.__('Error 404','newsmunch-pro').'</a></li>';
 					}
-					else { 
+					else {
 					    echo '<li class="breadcrumb-item active"><a href="' . newsmunch_page_url() . '">'. get_the_title() .'</a></li>';
 					}
 				endif;
@@ -143,18 +143,18 @@ endif;
 // NewsMunch Excerpt Read More
 if ( ! function_exists( 'newsmunch_execerpt_btn' ) ) :
 function newsmunch_execerpt_btn() {
-	$newsmunch_show_post_btn		= get_theme_mod('newsmunch_show_post_btn'); 
-	$newsmunch_read_btn_txt		= get_theme_mod('newsmunch_read_btn_txt','Read more'); 
-	if ( $newsmunch_show_post_btn == '1' ) { 
+	$newsmunch_show_post_btn		= get_theme_mod('newsmunch_show_post_btn');
+	$newsmunch_read_btn_txt		= get_theme_mod('newsmunch_read_btn_txt','Read more');
+	if ( $newsmunch_show_post_btn == '1' ) {
 	?>
 	<a href="<?php echo esc_url(get_the_permalink()); ?>" class="dt-btn dt-btn-secondary" data-title="<?php echo wp_kses_post($newsmunch_read_btn_txt); ?>"><?php echo wp_kses_post($newsmunch_read_btn_txt); ?></a>
-<?php } 
-	} 
+<?php }
+	}
 endif;
 
 // NewsMunch excerpt length
 function newsmunch_site_excerpt_length( $length ) {
-	 $newsmunch_post_excerpt_length= get_theme_mod('newsmunch_post_excerpt_length','30'); 
+	 $newsmunch_post_excerpt_length= get_theme_mod('newsmunch_post_excerpt_length','30');
     if( $newsmunch_post_excerpt_length == 1000 ) {
         return 9999;
     }
@@ -176,7 +176,7 @@ add_filter( 'excerpt_more', 'newsmunch_site_excerpt_more' );
  */
 function newsmunch_header_widget_area_first() {
 	$newsmunch_header_widget_first = 'newsmunch-header-widget-left';
-	if ( is_active_sidebar( $newsmunch_header_widget_first ) ){ 
+	if ( is_active_sidebar( $newsmunch_header_widget_first ) ){
 		dynamic_sidebar( 'newsmunch-header-widget-left' );
 	} elseif ( current_user_can( 'edit_theme_options' ) ) {
 
@@ -204,7 +204,7 @@ function newsmunch_header_widget_area_first() {
  */
 function newsmunch_header_widget_area_second() {
 	$newsmunch_header_widget_first = 'newsmunch-header-widget-right';
-	if ( is_active_sidebar( $newsmunch_header_widget_first ) ){ 
+	if ( is_active_sidebar( $newsmunch_header_widget_first ) ){
 		dynamic_sidebar( 'newsmunch-header-widget-right' );
 } elseif ( current_user_can( 'edit_theme_options' ) ) {
 
@@ -232,7 +232,7 @@ function newsmunch_header_widget_area_second() {
 Register Google fonts for NewsMunch.
 =========================================*/
 function newsmunch_google_fonts_url() {
-	
+
     $font_families = array('IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700');
 
 	$fonts_url = add_query_arg( array(
@@ -270,36 +270,36 @@ function newsmunch_body_classes( $classes ) {
 
 	$newsmunch_heading_style = get_theme_mod('newsmunch_heading_style','dt-section--title-one');
 	$classes[] = $newsmunch_heading_style;
-	
+
 	$newsmunch_dark_mode=get_theme_mod('newsmunch_dark_mode');
 	if($newsmunch_dark_mode == 'dark'){
-		$classes[]='dark'; 
+		$classes[]='dark';
 	}
-	
+
 	$newsmunch_theme_layout_option=get_theme_mod('newsmunch_theme_layout_option','wide-layout');
 	if($newsmunch_theme_layout_option == "boxed-layout"){
-		$classes[]='background-boxed'; 
+		$classes[]='background-boxed';
 	}else{
-		$classes[]='background-wide'; 
+		$classes[]='background-wide';
 	}
-		
+
 	$newsmunch_hs_hdr_sticky	=	get_theme_mod('newsmunch_hs_hdr_sticky','1');
 	if($newsmunch_hs_hdr_sticky == "1"){
-		$classes[]='sticky-header'; 
+		$classes[]='sticky-header';
 	}
-	
-	$sticky_sidebar_hs	=	get_theme_mod('sticky_sidebar_hs','1');	
+
+	$sticky_sidebar_hs	=	get_theme_mod('sticky_sidebar_hs','1');
 	if($sticky_sidebar_hs == "1"){
-		$classes[]='sticky-sidebar'; 
+		$classes[]='sticky-sidebar';
 	}
-	
+
 	$newsmunch_enable_front_color_switcher=get_theme_mod('newsmunch_enable_front_color_switcher');
 	if($newsmunch_enable_front_color_switcher == '1'){
-		$classes[]='front__switcher-enable'; 
+		$classes[]='front__switcher-enable';
 	}
-	
+
 	// $newsmunch_enable_gradiant_color=get_theme_mod('newsmunch_enable_gradiant_color'); 	// if($newsmunch_enable_gradiant_color == '1'){ 		// $classes[]='dt_gcolor'; 	// }
-	
+
 	$newsmunch_btn_style=get_theme_mod('newsmunch_btn_style','btn--effect-one');
 	$classes[]=$newsmunch_btn_style;
 
@@ -308,8 +308,8 @@ function newsmunch_body_classes( $classes ) {
 add_filter( 'body_class', 'newsmunch_body_classes' );
 
 function newsmunch_post_classes( $classes ) {
-	if ( is_single() ) : 
-	$classes[]='single-post'; 
+	if ( is_single() ) :
+	$classes[]='single-post';
 	endif;
 	return $classes;
 }
@@ -379,7 +379,7 @@ function newsmunch_comment_count() {
 		/* translators: %s Comment number */
 		 echo sprintf( _n( '%s Comment', '%s Comments', $newsmunch_comments_count, 'newsmunch-pro' ), number_format_i18n( $newsmunch_comments_count ) );
 	}
-} 
+}
 endif;
 
 /*=========================================
@@ -452,8 +452,8 @@ NewsMunch Site Preloader
 =========================================*/
 if ( ! function_exists( 'newsmunch_site_preloader' ) ) :
 function newsmunch_site_preloader() {
-	$newsmunch_hs_preloader_option 	= get_theme_mod( 'newsmunch_hs_preloader_option','1'); 
-	if($newsmunch_hs_preloader_option == '1') { 
+	$newsmunch_hs_preloader_option 	= get_theme_mod( 'newsmunch_hs_preloader_option','1');
+	if($newsmunch_hs_preloader_option == '1') {
 	?>
 		 <div id="dt_preloader" class="dt_preloader">
 			<div class="dt_preloader-inner">
@@ -466,7 +466,7 @@ function newsmunch_site_preloader() {
 			</div>
 		</div>
 	<?php }
-	} 
+	}
 endif;
 add_action( 'newsmunch_site_preloader', 'newsmunch_site_preloader' );
 
@@ -476,8 +476,8 @@ NewsMunch Side Docker
 =========================================*/
 if ( ! function_exists( 'newsmunch_menu_side_docker' ) ) :
 function newsmunch_menu_side_docker() {
-	$newsmunch_hs_side_docker 	= get_theme_mod( 'newsmunch_hs_side_docker','1'); 
-	if($newsmunch_hs_side_docker == '1') { 
+	$newsmunch_hs_side_docker 	= get_theme_mod( 'newsmunch_hs_side_docker','1');
+	if($newsmunch_hs_side_docker == '1') {
 	?>
 		<li class="dt_navbar-sidebar-item">
 			<div class="dt_navbar-sidebar-btn">
@@ -498,7 +498,7 @@ function newsmunch_menu_side_docker() {
 			</div>
 		</li>
 	<?php }
-	} 
+	}
 endif;
 add_action( 'newsmunch_menu_side_docker', 'newsmunch_menu_side_docker' );
 
@@ -520,7 +520,7 @@ function newsmunch_site_main_header() {
 	else:
 	get_template_part('template-parts/prebuilt-sections/site','header');
 	endif;
-} 
+}
 endif;
 add_action( 'newsmunch_site_main_header', 'newsmunch_site_main_header' );
 
@@ -531,13 +531,13 @@ NewsMunch Header Image
 =========================================*/
 if ( ! function_exists( 'newsmunch_wp_hdr_image' ) ) :
 function newsmunch_wp_hdr_image() {
-	if ( get_header_image() ) : 
+	if ( get_header_image() ) :
 	$header_image = get_header_image(); ?>
 	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-header" id="custom-header" rel="home">
 		<img src="<?php echo esc_url($header_image); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="<?php echo esc_attr(get_bloginfo( 'title' )); ?>">
 	</a>
 <?php endif;
-	} 
+	}
 endif;
 add_action( 'newsmunch_wp_hdr_image', 'newsmunch_wp_hdr_image' );
 
@@ -547,7 +547,7 @@ NewsMunch Header Left Text
 =========================================*/
 if ( ! function_exists( 'newsmunch_header_left_text' ) ) :
 function newsmunch_header_left_text() {
-	$newsmunch_hs_hdr_left_text 	= get_theme_mod( 'newsmunch_hs_hdr_left_text','1'); 
+	$newsmunch_hs_hdr_left_text 	= get_theme_mod( 'newsmunch_hs_hdr_left_text','1');
 	$newsmunch_hdr_left_ttl  	= get_theme_mod( 'newsmunch_hdr_left_ttl','<i class="fas fa-fire-alt"></i> Trending News:');
 	$newsmunch_hdr_left_text_cat = get_theme_mod( 'newsmunch_hdr_left_text_cat','0');
 	$newsmunch_hdr_left_text_posts= newsmunch_get_posts(100, $newsmunch_hdr_left_text_cat);
@@ -565,9 +565,9 @@ function newsmunch_header_left_text() {
 						global $post;
 						$i=$i+1;
 						if($i=='1'):
-							newsmunch_common_post_title('b','is_on'); 
+							newsmunch_common_post_title('b','is_on');
 						else:
-							newsmunch_common_post_title('b',''); 
+							newsmunch_common_post_title('b','');
 						endif;
 						endwhile;endif;wp_reset_postdata();
 					?>
@@ -575,7 +575,7 @@ function newsmunch_header_left_text() {
 			</span>
 		</div>
 	<?php endif;
-} 
+}
 endif;
 add_action( 'newsmunch_header_left_text', 'newsmunch_header_left_text' );
 
@@ -585,8 +585,8 @@ NewsMunch Header Address
 =========================================*/
 if ( ! function_exists( 'newsmunch_header_address' ) ) :
 function newsmunch_header_address() {
-	$newsmunch_hs_hdr_top_ads 	= get_theme_mod( 'newsmunch_hs_hdr_top_ads'); 
-	$newsmunch_hdr_top_ads_icon= get_theme_mod( 'newsmunch_hdr_top_ads_icon','fas fa-map-marker-alt'); 
+	$newsmunch_hs_hdr_top_ads 	= get_theme_mod( 'newsmunch_hs_hdr_top_ads');
+	$newsmunch_hdr_top_ads_icon= get_theme_mod( 'newsmunch_hdr_top_ads_icon','fas fa-map-marker-alt');
 	$newsmunch_hdr_top_ads_title = get_theme_mod( 'newsmunch_hdr_top_ads_title','Chicago 12, Melborne City, USA');
 	$newsmunch_hdr_top_ads_link = get_theme_mod( 'newsmunch_hdr_top_ads_link');
 	if($newsmunch_hs_hdr_top_ads=='1'): ?>
@@ -594,7 +594,7 @@ function newsmunch_header_address() {
 			<?php if(!empty($newsmunch_hdr_top_ads_icon)): ?>
 				<i class="<?php echo esc_attr($newsmunch_hdr_top_ads_icon); ?>"></i>
 			<?php endif; ?>
-			
+
 			<?php if(!empty($newsmunch_hdr_top_ads_title)): ?>
 				<?php if(!empty($newsmunch_hdr_top_ads_link)): ?>
 					<span><a href="<?php echo esc_url($newsmunch_hdr_top_ads_link); ?>"><?php echo wp_kses_post($newsmunch_hdr_top_ads_title); ?></a></span>
@@ -604,7 +604,7 @@ function newsmunch_header_address() {
 			<?php endif; ?>
 		</div>
 	<?php endif;
-} 
+}
 endif;
 add_action( 'newsmunch_header_address', 'newsmunch_header_address' );
 
@@ -614,13 +614,13 @@ NewsMunch Weather
 =========================================*/
 if ( ! function_exists( 'newsmunch_header_weather' ) ) :
 function newsmunch_header_weather() {
-	$newsmunch_hs_hdr_top_weather 	= get_theme_mod( 'newsmunch_hs_hdr_top_weather','1'); 
+	$newsmunch_hs_hdr_top_weather 	= get_theme_mod( 'newsmunch_hs_hdr_top_weather','1');
 	if($newsmunch_hs_hdr_top_weather=='1'): ?>
 		<div class="widget dt-weather">
 			<div class="cities"></div>
 		</div>
 	<?php endif;
-} 
+}
 endif;
 add_action( 'newsmunch_header_weather', 'newsmunch_header_weather' );
 
@@ -629,29 +629,29 @@ NewsMunch Date
 =========================================*/
 if ( ! function_exists( 'newsmunch_header_date' ) ) :
 function newsmunch_header_date() {
-	$newsmunch_hs_hdr_date 		= get_theme_mod( 'newsmunch_hs_hdr_date','1'); 
-	$newsmunch_hs_hdr_time 		= get_theme_mod( 'newsmunch_hs_hdr_time','1'); 
+	$newsmunch_hs_hdr_date 		= get_theme_mod( 'newsmunch_hs_hdr_date','1');
+	$newsmunch_hs_hdr_time 		= get_theme_mod( 'newsmunch_hs_hdr_time','1');
 	$newsmunch_hdr_date_display 	= get_theme_mod( 'newsmunch_hdr_date_display','theme');
 	?>
 		<div class="widget dt-current-date">
 			<?php if($newsmunch_hs_hdr_date=='1'): ?>
 				<span>
-					<i class="fas fa-calendar-alt"></i> 
-					<?php 
-						if($newsmunch_hdr_date_display=='theme'): 
-							echo date_i18n('D. M jS, Y ', strtotime(current_time("Y-m-d"))); 
+					<i class="fas fa-calendar-alt"></i>
+					<?php
+						if($newsmunch_hdr_date_display=='theme'):
+							echo date_i18n('D. M jS, Y ', strtotime(current_time("Y-m-d")));
 						else:
-							echo date_i18n( get_option( 'date_format' ) ); 
-						endif; 
+							echo date_i18n( get_option( 'date_format' ) );
+						endif;
 					?>
 				</span>
 			<?php endif; ?>
 			<?php if($newsmunch_hs_hdr_time=='1'): ?>
 				<span id="dt-time" class="dt-time"></span>
-			<?php endif; ?>	
+			<?php endif; ?>
 		</div>
 	<?php
-} 
+}
 endif;
 add_action( 'newsmunch_header_date', 'newsmunch_header_date' );
 
@@ -660,8 +660,8 @@ NewsMunch Social Icon
 =========================================*/
 if ( ! function_exists( 'newsmunch_site_social' ) ) :
 function newsmunch_site_social() {
-	// Social 
-	$newsmunch_hs_hdr_social 	= get_theme_mod( 'newsmunch_hs_hdr_social','1'); 
+	// Social
+	$newsmunch_hs_hdr_social 	= get_theme_mod( 'newsmunch_hs_hdr_social','1');
 	$newsmunch_hdr_social 		= get_theme_mod( 'newsmunch_hdr_social',newsmunch_get_social_icon_default());
 	if($newsmunch_hs_hdr_social=='1'): ?>
 		<div class="widget widget_social">
@@ -669,15 +669,15 @@ function newsmunch_site_social() {
 				$newsmunch_hdr_social = json_decode($newsmunch_hdr_social);
 				if( $newsmunch_hdr_social!='' )
 				{
-				foreach($newsmunch_hdr_social as $item){	
-				$social_icon = ! empty( $item->icon_value ) ? apply_filters( 'newsmunch_translate_single_string', $item->icon_value, 'Header section' ) : '';	
+				foreach($newsmunch_hdr_social as $item){
+				$social_icon = ! empty( $item->icon_value ) ? apply_filters( 'newsmunch_translate_single_string', $item->icon_value, 'Header section' ) : '';
 				$social_link = ! empty( $item->link ) ? apply_filters( 'newsmunch_translate_single_string', $item->link, 'Header section' ) : '';
 			?>
 				<a href="<?php echo esc_url( $social_link ); ?>"><i class="<?php echo esc_attr( $social_icon ); ?>"></i></a>
 			<?php }} ?>
 		</div>
 	<?php endif;
-} 
+}
 endif;
 add_action( 'newsmunch_site_social', 'newsmunch_site_social' );
 
@@ -688,7 +688,7 @@ if ( ! function_exists( 'newsmunch_site_header' ) ) :
 function newsmunch_site_header() {
 $newsmunch_hs_hdr 	= get_theme_mod( 'newsmunch_hs_hdr','1');
 $newsmunch_header_design 	= get_theme_mod( 'newsmunch_header_design','header--three');
-if($newsmunch_hs_hdr == '1') { 
+if($newsmunch_hs_hdr == '1') {
 ?>
 	<div class="dt-container-md">
 		<div class="dt-row">
@@ -707,7 +707,7 @@ if($newsmunch_hs_hdr == '1') {
 		</div>
 	</div>
 	<?php }
-	} 
+	}
 endif;
 add_action( 'newsmunch_site_header', 'newsmunch_site_header' );
 
@@ -718,16 +718,16 @@ NewsMunch Site Navigation
 =========================================*/
 if ( ! function_exists( 'newsmunch_site_header_navigation' ) ) :
 function newsmunch_site_header_navigation() {
-	wp_nav_menu( 
-		array(  
+	wp_nav_menu(
+		array(
 			'theme_location' => 'primary_menu',
 			'container'  => '',
 			'menu_class' => 'dt_navbar-mainmenu',
 			'fallback_cb' => 'newsmunch_fallback_page_menu',
 			'walker' => new WP_Bootstrap_Navwalker()
-			 ) 
+			 )
 		);
-	} 
+	}
 endif;
 add_action( 'newsmunch_site_header_navigation', 'newsmunch_site_header_navigation' );
 
@@ -737,16 +737,16 @@ NewsMunch Header Banner
 =========================================*/
 if ( ! function_exists( 'newsmunch_header_banner' ) ) :
 function newsmunch_header_banner() {
-	$newsmunch_hs_hdr_banner 		= get_theme_mod( 'newsmunch_hs_hdr_banner','1'); 
-	$newsmunch_hdr_banner_img 		= get_theme_mod( 'newsmunch_hdr_banner_img',esc_url(get_template_directory_uri() .'/assets/img/promo-news.png')); 
-	$newsmunch_hdr_banner_link 		= get_theme_mod( 'newsmunch_hdr_banner_link','#'); 
+	$newsmunch_hs_hdr_banner 		= get_theme_mod( 'newsmunch_hs_hdr_banner','1');
+	$newsmunch_hdr_banner_img 		= get_theme_mod( 'newsmunch_hdr_banner_img',esc_url(get_template_directory_uri() .'/assets/img/promo-news.png'));
+	$newsmunch_hdr_banner_link 		= get_theme_mod( 'newsmunch_hdr_banner_link','#');
 	$newsmunch_hdr_banner_target 	= get_theme_mod( 'newsmunch_hdr_banner_target');
-	if($newsmunch_hdr_banner_target=='1'): $target='target=_blank'; else: $target=''; endif; 
-	if($newsmunch_hs_hdr_banner=='1'  && !empty($newsmunch_hdr_banner_img)):	
+	if($newsmunch_hdr_banner_target=='1'): $target='target=_blank'; else: $target=''; endif;
+	if($newsmunch_hs_hdr_banner=='1'  && !empty($newsmunch_hdr_banner_img)):
 ?>
 	<a href="<?php echo esc_url($newsmunch_hdr_banner_link); ?>" <?php echo esc_attr($target); ?>><img src="<?php echo esc_url($newsmunch_hdr_banner_img); ?>"></a>
 <?php endif;
-	} 
+	}
 endif;
 add_action( 'newsmunch_header_banner', 'newsmunch_header_banner' );
 
@@ -756,18 +756,18 @@ NewsMunch Header Button
 =========================================*/
 if ( ! function_exists( 'newsmunch_header_button' ) ) :
 function newsmunch_header_button( $btnClass = 'dt-btn-secondary' ) {
-	$newsmunch_hs_hdr_btn 		= get_theme_mod( 'newsmunch_hs_hdr_btn','1'); 
-	$newsmunch_hdr_btn_lbl 		= get_theme_mod( 'newsmunch_hdr_btn_lbl','Subscribe'); 
-	$newsmunch_hdr_btn_link 		= get_theme_mod( 'newsmunch_hdr_btn_link','#'); 
+	$newsmunch_hs_hdr_btn 		= get_theme_mod( 'newsmunch_hs_hdr_btn','1');
+	$newsmunch_hdr_btn_lbl 		= get_theme_mod( 'newsmunch_hdr_btn_lbl','Subscribe');
+	$newsmunch_hdr_btn_link 		= get_theme_mod( 'newsmunch_hdr_btn_link','#');
 	$newsmunch_hdr_btn_target 		= get_theme_mod( 'newsmunch_hdr_btn_target');
-	if($newsmunch_hdr_btn_target=='1'): $target='target=_blank'; else: $target=''; endif; 
-	if($newsmunch_hs_hdr_btn=='1'  && !empty($newsmunch_hdr_btn_lbl)):	
+	if($newsmunch_hdr_btn_target=='1'): $target='target=_blank'; else: $target=''; endif;
+	if($newsmunch_hs_hdr_btn=='1'  && !empty($newsmunch_hdr_btn_lbl)):
 ?>
 	<li class="dt_navbar-button-item">
 		<a href="<?php echo esc_url($newsmunch_hdr_btn_link); ?>" <?php echo esc_attr($target); ?> class="dt-btn <?php echo esc_attr($btnClass); ?>" data-title="<?php echo wp_kses_post($newsmunch_hdr_btn_lbl); ?>"><?php echo wp_kses_post($newsmunch_hdr_btn_lbl); ?></a>
 	</li>
 <?php endif;
-	} 
+	}
 endif;
 add_action( 'newsmunch_header_button', 'newsmunch_header_button' );
 
@@ -777,14 +777,14 @@ NewsMunch Header Dark
 =========================================*/
 if ( ! function_exists( 'newsmunch_dark_light_switcher' ) ) :
 function newsmunch_dark_light_switcher() {
-	$newsmunch_hs_hdr_dark_option 		= get_theme_mod( 'newsmunch_hs_hdr_dark_option','1'); 
-	if($newsmunch_hs_hdr_dark_option=='1'):	
+	$newsmunch_hs_hdr_dark_option 		= get_theme_mod( 'newsmunch_hs_hdr_dark_option','1');
+	if($newsmunch_hs_hdr_dark_option=='1'):
 ?>
 	<li class="dt_switcherdarkbtn-item">
 		<button type="button" class="dt_switcherdarkbtn"></button>
 	</li>
 <?php endif;
-	} 
+	}
 endif;
 add_action( 'newsmunch_dark_light_switcher', 'newsmunch_dark_light_switcher' );
 
@@ -793,9 +793,9 @@ NewsMunch Site Search
 =========================================*/
 if ( ! function_exists( 'newsmunch_site_main_search' ) ) :
 function newsmunch_site_main_search() {
-	$newsmunch_hs_hdr_search 	= get_theme_mod( 'newsmunch_hs_hdr_search','1'); 
+	$newsmunch_hs_hdr_search 	= get_theme_mod( 'newsmunch_hs_hdr_search','1');
 	$newsmunch_search_result 	= get_theme_mod( 'newsmunch_search_result','post');
-	if($newsmunch_hs_hdr_search=='1'):	
+	if($newsmunch_hs_hdr_search=='1'):
 ?>
 <li class="dt_navbar-search-item">
 	<button class="dt_navbar-search-toggle"><svg class="icon"><use xlink:href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/icons/icons.svg#search-icon"></use></svg></button>
@@ -832,7 +832,7 @@ function newsmunch_site_main_search() {
 	</div>
 </li>
 <?php endif;
-	} 
+	}
 endif;
 add_action( 'newsmunch_site_main_search', 'newsmunch_site_main_search' );
 
@@ -843,35 +843,35 @@ NewsMunch WooCommerce Cart
 =========================================*/
 if ( ! function_exists( 'newsmunch_woo_cart' ) ) :
 function newsmunch_woo_cart() {
-	$newsmunch_hs_hdr_cart 	= get_theme_mod( 'newsmunch_hs_hdr_cart','1'); 
-		if($newsmunch_hs_hdr_cart=='1' && class_exists( 'WooCommerce' )):	
+	$newsmunch_hs_hdr_cart 	= get_theme_mod( 'newsmunch_hs_hdr_cart','1');
+		if($newsmunch_hs_hdr_cart=='1' && class_exists( 'WooCommerce' )):
 	?>
 	<li class="dt_navbar-cart-item">
 		<a href="javascript:void(0);" class="dt_navbar-cart-icon">
 			<span class="cart_icon">
 				<svg class="icon"><use xlink:href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/icons/icons.svg#cart-icon"></use></svg>
 			</span>
-			<?php 
+			<?php
 				$count = WC()->cart->cart_contents_count;
-				
+
 				if ( $count > 0 ) {
 				?>
 					 <strong class="cart_count"><?php echo esc_html( $count ); ?></strong>
-				<?php 
+				<?php
 				}
 				else {
 					?>
 					<strong class="cart_count"><?php  esc_html_e('0','newsmunch-pro'); ?></strong>
-					<?php 
+					<?php
 				}
 			?>
 		</a>
 		<div class="dt_navbar-shopcart">
-			<?php get_template_part('woocommerce/cart/mini','cart'); ?>      
+			<?php get_template_part('woocommerce/cart/mini','cart'); ?>
 		</div>
 	</li>
-	<?php endif; 
-	} 
+	<?php endif;
+	}
 endif;
 add_action( 'newsmunch_woo_cart', 'newsmunch_woo_cart' );
 
@@ -880,28 +880,28 @@ add_action( 'newsmunch_woo_cart', 'newsmunch_woo_cart' );
  * Add WooCommerce Cart Icon With Cart Count (https://isabelcastillo.com/woocommerce-cart-icon-count-theme-header)
  */
 function newsmunch_woo_add_to_cart_fragment( $fragments ) {
-	
+
     ob_start();
-    $count = WC()->cart->cart_contents_count; 
-    ?> 
-	<?php 
+    $count = WC()->cart->cart_contents_count;
+    ?>
+	<?php
 			$count = WC()->cart->cart_contents_count;
-			
+
 			if ( $count > 0 ) {
 			?>
 				 <strong class="cart_count"><?php echo esc_html( $count ); ?></strong>
-			<?php 
+			<?php
 			}
 			else {
 				?>
 				<strong class="cart_count"><?php esc_html_e('0','newsmunch-pro'); ?></strong>
-				<?php 
+				<?php
 			}
 	?>
 	<?php
- 
+
     $fragments['.cart_count'] = ob_get_clean();
-     
+
     return $fragments;
 }
 add_filter( 'woocommerce_add_to_cart_fragments', 'newsmunch_woo_add_to_cart_fragment' );
@@ -911,7 +911,7 @@ add_filter( 'woocommerce_add_to_cart_fragments', 'newsmunch_woo_add_to_cart_frag
 NewsMunch My Account
 =========================================*/
 if ( ! function_exists( 'newsmunch_hdr_account' ) ) {
-	function newsmunch_hdr_account() {	
+	function newsmunch_hdr_account() {
 		$newsmunch_hs_hdr_account 		= get_theme_mod( 'newsmunch_hs_hdr_account','1');
 		if($newsmunch_hs_hdr_account=='1'): ?>
 			<li class="dt_navbar-login-item">
@@ -931,7 +931,7 @@ add_action( 'newsmunch_hdr_account', 'newsmunch_hdr_account' );
 NewsMunch Subscribe
 =========================================*/
 if ( ! function_exists( 'newsmunch_hdr_subscribe' ) ) {
-	function newsmunch_hdr_subscribe() {	
+	function newsmunch_hdr_subscribe() {
 		$newsmunch_hs_hdr_subscribe 		= get_theme_mod( 'newsmunch_hs_hdr_subscribe','1');
 		$newsmunch_hdr_subscribe_link 		= get_theme_mod( 'newsmunch_hdr_subscribe_link','#');
 		if($newsmunch_hs_hdr_subscribe=='1'): ?>
@@ -951,24 +951,24 @@ if ( ! function_exists( 'newsmunch_site_logo' ) ) :
 function newsmunch_site_logo() {
 		$newsmunch_title_tagline_seo = get_theme_mod( 'newsmunch_title_tagline_seo');
 		if(has_custom_logo())
-			{	
+			{
 				the_custom_logo();
 			}
-			else { 
+			else {
 			?>
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site--title">
 				<h1 class="site--title">
-					<?php 
+					<?php
 						echo esc_html(get_bloginfo('name'));
 					?>
 				</h1>
-			</a>	
-		<?php 						
+			</a>
+		<?php
 			}
 		?>
-		<?php if($newsmunch_title_tagline_seo=='1'): ?>	
+		<?php if($newsmunch_title_tagline_seo=='1'): ?>
 			<h1 class="site--title" style="display: none;">
-				<?php 
+				<?php
 					echo esc_html(get_bloginfo('name'));
 				?>
 			</h1>
@@ -978,7 +978,7 @@ function newsmunch_site_logo() {
 			if ($newsmunch_description) : ?>
 				<p class="site--description"><?php echo esc_html($newsmunch_description); ?></p>
 		<?php endif;
-	} 
+	}
 endif;
 add_action( 'newsmunch_site_logo', 'newsmunch_site_logo' );
 
@@ -988,7 +988,7 @@ NewsMunch Main Slider
 =========================================*/
 if ( ! function_exists( 'newsmunch_site_slider_main' ) ) :
 function newsmunch_site_slider_main() {
-	$newsmunch_slider_position		= get_theme_mod('newsmunch_slider_position','left') == 'left' ? '': 'dt-flex-row-reverse'; 
+	$newsmunch_slider_position		= get_theme_mod('newsmunch_slider_position','left') == 'left' ? '': 'dt-flex-row-reverse';
 	$newsmunch_slider_type			= get_theme_mod('newsmunch_slider_type','lg');
 	$newsmunch_slider_column		= get_theme_mod('newsmunch_slider_column','1');
 	$newsmunch_slider_ttl			= get_theme_mod('newsmunch_slider_ttl','Main Story');
@@ -1013,25 +1013,25 @@ function newsmunch_site_slider_main() {
 			while ($newsmunch_slider_posts->have_posts()) : $newsmunch_slider_posts->the_post();
 
 			global $post;
-			$format = get_post_format() ? : 'standard';	
+			$format = get_post_format() ? : 'standard';
 		?>
 			<div class="post featured-post-<?php echo esc_attr($newsmunch_slider_type); ?>">
 				<div class="details clearfix">
 					<?php if($newsmunch_hs_slider_cat_meta=='1'): newsmunch_getpost_categories();  endif; ?>
-					<?php if($newsmunch_hs_slider_title=='1'): newsmunch_common_post_title('h2','post-title'); endif; ?> 
+					<?php if($newsmunch_hs_slider_title=='1'): newsmunch_common_post_title('h2','post-title'); endif; ?>
 					<ul class="meta list-inline dt-mt-0 dt-mb-0 dt-mt-3">
 						<?php if($newsmunch_hs_slider_auth_meta=='1'): ?>
 							<li class="list-inline-item"><i class="far fa-user-circle"></i> <?php esc_html_e('By','newsmunch-pro');?> <a href="<?php echo esc_url(get_author_posts_url( get_the_author_meta( 'ID' ) ));?>" title="Posts by David" rel="author"><?php esc_html(the_author()); ?></a></li>
-						<?php endif; ?>	
-						
+						<?php endif; ?>
+
 						<?php if($newsmunch_hs_slider_date_meta=='1'): ?>
 							<li class="list-inline-item"><i class="far fa-calendar-alt"></i> <?php echo esc_html(get_the_date( 'F j, Y' )); ?></li>
-						<?php endif; ?>	
-						
+						<?php endif; ?>
+
 						<?php if($newsmunch_hs_slider_comment_meta=='1'): ?>
 							<li class="list-inline-item"><i class="far fa-comments"></i> <?php echo esc_html(get_comments_number($post->ID)); ?></li>
-						<?php endif; ?>	
-						
+						<?php endif; ?>
+
 						<?php if($newsmunch_hs_slider_views_meta=='1'): ?>
 							<li class="list-inline-item"><i class="far fa-eye"></i> <?php echo wp_kses_post(newsmunch_get_post_view()); ?></li>
 						<?php endif; newsmunch_edit_post_link(); ?>
@@ -1055,7 +1055,7 @@ function newsmunch_site_slider_main() {
 		<?php endwhile;endif;wp_reset_postdata(); ?>
 	</div>
 	<?php
-	} 
+	}
 endif;
 add_action( 'newsmunch_site_slider_main', 'newsmunch_site_slider_main' );
 
@@ -1089,25 +1089,25 @@ function newsmunch_site_slider_middle() {
 			while ($newsmunch_posts->have_posts()) : $newsmunch_posts->the_post();
 
 			global $post;
-			$format = get_post_format() ? : 'standard';	
+			$format = get_post_format() ? : 'standard';
 		?>
 			<div class="post featured-post-<?php echo esc_attr($newsmunch_slider_type); ?>">
 				<div class="details clearfix">
 					<?php if($newsmunch_hs_slider_mdl_cat_meta=='1'): newsmunch_getpost_categories();  endif; ?>
-					<?php if($newsmunch_hs_slider_mdl_title=='1'): newsmunch_common_post_title('h2','post-title'); endif; ?> 
+					<?php if($newsmunch_hs_slider_mdl_title=='1'): newsmunch_common_post_title('h2','post-title'); endif; ?>
 					<ul class="meta list-inline dt-mt-0 dt-mb-0 dt-mt-3">
 						<?php if($newsmunch_hs_slider_mdl_auth_meta=='1'): ?>
 							<li class="list-inline-item"><i class="far fa-user-circle"></i> <?php esc_html_e('By','newsmunch-pro');?> <a href="<?php echo esc_url(get_author_posts_url( get_the_author_meta( 'ID' ) ));?>" title="Posts by David" rel="author"><?php esc_html(the_author()); ?></a></li>
-						<?php endif; ?>	
-						
+						<?php endif; ?>
+
 						<?php if($newsmunch_hs_slider_mdl_date_meta=='1'): ?>
 							<li class="list-inline-item"><i class="far fa-calendar-alt"></i> <?php echo esc_html(get_the_date( 'F j, Y' )); ?></li>
-						<?php endif; ?>	
-						
+						<?php endif; ?>
+
 						<?php if($newsmunch_hs_slider_mdl_comment_meta=='1'): ?>
 							<li class="list-inline-item"><i class="far fa-comments"></i> <?php echo esc_html(get_comments_number($post->ID)); ?></li>
-						<?php endif; ?>	
-						
+						<?php endif; ?>
+
 						<?php if($newsmunch_hs_slider_mdl_views_meta=='1'): ?>
 							<li class="list-inline-item"><i class="far fa-eye"></i> <?php echo wp_kses_post(newsmunch_get_post_view()); ?></li>
 						<?php endif; newsmunch_edit_post_link(); ?>
@@ -1131,7 +1131,48 @@ function newsmunch_site_slider_middle() {
 		<?php endwhile;endif;wp_reset_postdata(); ?>
 	</div>
 	<?php
-	} 
+	// Custom addition: Render Live Streams Widget content
+	$today = date('Y-m-d');
+	$streams = get_posts([
+		'post_type' => 'stream',
+		'posts_per_page' => 5,
+		'meta_query' => [
+			'relation' => 'AND',
+			[
+				'key' => '_lsw_stream_active',
+				'value' => '1',
+			],
+			[
+				'key' => '_lsw_stream_date',
+				'value' => $today,
+				'compare' => '>=',
+				'type' => 'DATE'
+			]
+		],
+		'orderby' => 'meta_value',
+		'order' => 'ASC'
+	]);
+
+	if ($streams) {
+		echo '<div class="lsw-widget dt-mt-4">'; // Added margin top for spacing
+		echo '<h4 class="widget-title">' . esc_html__('Eventos en Vivo', 'newsmunch-pro') . '</h4>';
+		foreach ($streams as $stream) {
+			$embed = get_post_meta($stream->ID, '_lsw_stream_embed', true);
+			$title_stream = get_the_title($stream);
+			echo '<div class="lsw-item">';
+			echo '<h4 class="lsw-item-title">'.esc_html($title_stream).'</h4>';
+			if ($embed) {
+				echo '<div class="lsw-iframe-wrap">';
+				echo $embed;
+				echo '</div>';
+			}
+			echo '</div>';
+		}
+		echo '</div>';
+	}
+	?>
+	<?php
+	}
 endif;
 add_action( 'newsmunch_site_slider_middle', 'newsmunch_site_slider_middle' );
 
@@ -1152,8 +1193,8 @@ function newsmunch_site_slider_right() {
 	$newsmunch_hs_slider_tab_date_meta= get_theme_mod('newsmunch_hs_slider_tab_date_meta','1');
 	$newsmunch_num_slides_tab		= get_theme_mod('newsmunch_num_slides_tab','3');
 	$newsmunch_slider_tab1_posts		= newsmunch_get_posts($newsmunch_num_slides_tab, $newsmunch_tabfirst_cat);
-	$newsmunch_slider_tab2_posts		= newsmunch_get_posts($newsmunch_num_slides_tab, $newsmunch_tabsecond_cat);	
-	$newsmunch_slider_tab3_posts		= newsmunch_get_posts($newsmunch_num_slides_tab, $newsmunch_tabthird_cat);		
+	$newsmunch_slider_tab2_posts		= newsmunch_get_posts($newsmunch_num_slides_tab, $newsmunch_tabsecond_cat);
+	$newsmunch_slider_tab3_posts		= newsmunch_get_posts($newsmunch_num_slides_tab, $newsmunch_tabthird_cat);
 if(!empty($newsmunch_slider_right_ttl)):
  ?>
 	<div class="widget-header sl-right">
@@ -1162,43 +1203,43 @@ if(!empty($newsmunch_slider_right_ttl)):
 <?php endif; ?>
 <div class="dt_tabs post-tabs">
 	<ul class="dt_tabslist" id="postsTab" role="tablist">
-		<?php 
+		<?php
 			$newsmunch_tabfirst_cat = (int) $newsmunch_tabfirst_cat;
 			$newsmunch_tabsecond_cat = (int) $newsmunch_tabsecond_cat;
 			$newsmunch_tabthird_cat = (int) $newsmunch_tabthird_cat;
-			
+
 			if(!empty($newsmash_tabfirst_cat) && !empty($newsmunch_tabsecond_cat) && !empty($newsmunch_tabthird_cat)):
 				$catFirst = str_replace(" ","-", strtolower(get_cat_name( $newsmunch_tabfirst_cat )));
-				$catSecond = str_replace(" ","-", strtolower(get_cat_name( $newsmunch_tabsecond_cat )));	
-				$catThird = str_replace(" ","-", strtolower(get_cat_name( $newsmunch_tabthird_cat )));	
+				$catSecond = str_replace(" ","-", strtolower(get_cat_name( $newsmunch_tabsecond_cat )));
+				$catThird = str_replace(" ","-", strtolower(get_cat_name( $newsmunch_tabthird_cat )));
 			else:
 				$catFirst = esc_html('popular','newsmunch');
 				$catSecond = esc_html('trending','newsmunch');
 				$catThird = esc_html('recent','newsmunch');
-			endif;		
+			endif;
 		?>
-		
+
 		<?php if(!empty($newsmunch_tabfirst_cat)):?>
 			<li role="presentation"><button aria-controls='<?php echo esc_html($catFirst); ?>' aria-selected="true" class="nav-link active" data-tab="<?php echo esc_html($catFirst); ?>" role="tab" type="button"><i class="fas fa-bolt" aria-hidden="true"></i><?php echo esc_html(get_cat_name( $newsmunch_tabfirst_cat )); ?></button></li>
 		<?php else: ?>
 			<li role="presentation"><button aria-controls='<?php echo esc_html($catFirst); ?>' aria-selected="true" class="nav-link active" data-tab="<?php echo esc_html($catFirst); ?>" role="tab" type="button"><i class="fas fa-bolt" aria-hidden="true"></i><?php esc_html_e('Popular','newsmunch-pro'); ?></button></li>
-		<?php endif; ?>	
-		
-		<?php if($newsmunch_slider_right_tab_count == '2' || $newsmunch_slider_right_tab_count == '3'):?> 
+		<?php endif; ?>
+
+		<?php if($newsmunch_slider_right_tab_count == '2' || $newsmunch_slider_right_tab_count == '3'):?>
 			<?php if(!empty($newsmunch_tabsecond_cat)):?>
 				<li role="presentation"><button aria-controls="<?php echo esc_html($catSecond); ?>" aria-selected="false" class="nav-link" data-tab="<?php echo esc_html($catSecond); ?>" role="tab" type="button"><i class="fas fa-fire-alt" aria-hidden="true"></i><?php echo esc_html(get_cat_name( $newsmunch_tabsecond_cat )); ?></button></li>
 			<?php else: ?>
 				<li role="presentation"><button aria-controls='<?php echo esc_html($catSecond); ?>' aria-selected="false" class="nav-link" data-tab="<?php echo esc_html($catSecond); ?>" role="tab" type="button"><i class="fas fa-fire-alt" aria-hidden="true"></i><?php esc_html_e('Trending','newsmunch-pro'); ?></button></li>
-			<?php endif; ?>	
-		<?php endif; ?>	
-		
+			<?php endif; ?>
+		<?php endif; ?>
+
 		<?php if($newsmunch_slider_right_tab_count == '3'):?>
 			<?php if(!empty($newsmunch_tabthird_cat)):?>
 				<li role="presentation"><button aria-controls="<?php echo esc_html($catThird); ?>" aria-selected="false" class="nav-link" data-tab="<?php echo esc_html($catThird); ?>" role="tab" type="button"><i class="fas fa-clock" aria-hidden="true"></i><?php echo esc_html(get_cat_name( $newsmunch_tabthird_cat )); ?></button></li>
 			<?php else: ?>
 				<li role="presentation"><button aria-controls='<?php echo esc_html($catThird); ?>' aria-selected="false" class="nav-link" data-tab="<?php echo esc_html($catThird); ?>" role="tab" type="button"><i class="fas fa-clock" aria-hidden="true"></i><?php esc_html_e('Recent','newsmunch-pro'); ?></button></li>
-			<?php endif; ?>	
-		<?php endif; ?>			
+			<?php endif; ?>
+		<?php endif; ?>
 	</ul>
 	<div class="tab-content" id="postsTabContent">
 		<div class="lds-dual-ring"></div>
@@ -1218,9 +1259,9 @@ if(!empty($newsmunch_slider_right_ttl)):
 						</div>
 					<?php } ?>
 					<div class="details clearfix">
-						<?php if($newsmunch_hs_slider_tab_cat_meta=='1'): newsmunch_getpost_categories(); endif; ?>	
-						<?php if($newsmunch_hs_slider_tab_title=='1'):	newsmunch_common_post_title('h6','post-title dt-my-1'); endif; ?> 
-						<?php if($newsmunch_hs_slider_tab_date_meta=='1'): ?>	
+						<?php if($newsmunch_hs_slider_tab_cat_meta=='1'): newsmunch_getpost_categories(); endif; ?>
+						<?php if($newsmunch_hs_slider_tab_title=='1'):	newsmunch_common_post_title('h6','post-title dt-my-1'); endif; ?>
+						<?php if($newsmunch_hs_slider_tab_date_meta=='1'): ?>
 							<ul class="meta list-inline dt-mt-1 dt-mb-0">
 								<?php do_action('newsmunch_common_post_date'); ?>
 							</ul>
@@ -1245,9 +1286,9 @@ if(!empty($newsmunch_slider_right_ttl)):
 						</div>
 					<?php } ?>
 					<div class="details clearfix">
-						<?php if($newsmunch_hs_slider_tab_cat_meta=='1'): newsmunch_getpost_categories(); endif; ?>	
-						<?php if($newsmunch_hs_slider_tab_title=='1'):	newsmunch_common_post_title('h6','post-title dt-my-1'); endif; ?> 
-						<?php if($newsmunch_hs_slider_tab_date_meta=='1'): ?>	
+						<?php if($newsmunch_hs_slider_tab_cat_meta=='1'): newsmunch_getpost_categories(); endif; ?>
+						<?php if($newsmunch_hs_slider_tab_title=='1'):	newsmunch_common_post_title('h6','post-title dt-my-1'); endif; ?>
+						<?php if($newsmunch_hs_slider_tab_date_meta=='1'): ?>
 							<ul class="meta list-inline dt-mt-1 dt-mb-0">
 								<?php do_action('newsmunch_common_post_date'); ?>
 							</ul>
@@ -1272,9 +1313,9 @@ if(!empty($newsmunch_slider_right_ttl)):
 						</div>
 					<?php } ?>
 					<div class="details clearfix">
-						<?php if($newsmunch_hs_slider_tab_cat_meta=='1'): newsmunch_getpost_categories(); endif; ?>	
-						<?php if($newsmunch_hs_slider_tab_title=='1'):	newsmunch_common_post_title('h6','post-title dt-my-1'); endif; ?> 
-						<?php if($newsmunch_hs_slider_tab_date_meta=='1'): ?>	
+						<?php if($newsmunch_hs_slider_tab_cat_meta=='1'): newsmunch_getpost_categories(); endif; ?>
+						<?php if($newsmunch_hs_slider_tab_title=='1'):	newsmunch_common_post_title('h6','post-title dt-my-1'); endif; ?>
+						<?php if($newsmunch_hs_slider_tab_date_meta=='1'): ?>
 							<ul class="meta list-inline dt-mt-1 dt-mb-0">
 								<?php do_action('newsmunch_common_post_date'); ?>
 							</ul>
@@ -1286,7 +1327,7 @@ if(!empty($newsmunch_slider_right_ttl)):
 	</div>
 </div>
 	<?php
-	} 
+	}
 endif;
 add_action( 'newsmunch_site_slider_right', 'newsmunch_site_slider_right' );
 
@@ -1306,7 +1347,7 @@ function newsmunch_site_slider() {
 			endif;
 		endif;
 	 }
-	} 
+	}
 endif;
 add_action( 'newsmunch_site_front_main', 'newsmunch_site_slider' );
 
@@ -1321,13 +1362,13 @@ function newsmunch_site_featured_link() {
 		$newsmunch_hs_featured_link 		= get_theme_mod( 'newsmunch_hs_featured_link', '1');
 		if($newsmunch_hs_featured_link=='1'):
 			if (is_home() && ($newsmunch_display_featured_link=='post' || $newsmunch_display_featured_link=='front_post')):
-				get_template_part('template-parts/prebuilt-sections/frontpage/section','featured-link'); 
+				get_template_part('template-parts/prebuilt-sections/frontpage/section','featured-link');
 			elseif (is_front_page() && ($newsmunch_display_featured_link=='front' || $newsmunch_display_featured_link=='front_post')):
-				get_template_part('template-parts/prebuilt-sections/frontpage/section','featured-link'); 
+				get_template_part('template-parts/prebuilt-sections/frontpage/section','featured-link');
 			endif;
 		endif;
 	 }
-	} 
+	}
 endif;
 add_action( 'newsmunch_site_front_main2', 'newsmunch_site_featured_link' );
 
@@ -1341,13 +1382,13 @@ function newsmunch_site_hero() {
 		$newsmunch_hs_hero 	   = get_theme_mod( 'newsmunch_hs_hero');
 		if($newsmunch_hs_hero=='1'):
 			if (is_home() && ($newsmunch_display_hero=='post' || $newsmunch_display_hero=='front_post')):
-				get_template_part('template-parts/prebuilt-sections/frontpage/section','hero'); 
+				get_template_part('template-parts/prebuilt-sections/frontpage/section','hero');
 			elseif (is_front_page() && ($newsmunch_display_hero=='front' || $newsmunch_display_hero=='front_post')):
-				get_template_part('template-parts/prebuilt-sections/frontpage/section','hero'); 
+				get_template_part('template-parts/prebuilt-sections/frontpage/section','hero');
 			endif;
 		endif;
 	 }
-	} 
+	}
 endif;
 add_action( 'newsmunch_site_front_main3', 'newsmunch_site_hero' );
 
@@ -1356,7 +1397,7 @@ NewsMunch Footer Widget
 =========================================*/
 if ( ! function_exists( 'newsmunch_footer_widget' ) ) :
 function newsmunch_footer_widget() {
-	$newsmunch_footer_widget_column	= get_theme_mod('newsmunch_footer_widget_column','4'); 
+	$newsmunch_footer_widget_column	= get_theme_mod('newsmunch_footer_widget_column','4');
 		if ($newsmunch_footer_widget_column == '4') {
 				$column = '3';
 			} elseif ($newsmunch_footer_widget_column == '3') {
@@ -1366,7 +1407,7 @@ function newsmunch_footer_widget() {
 			} else{
 				$column = '12';
 			}
-	if($newsmunch_footer_widget_column !==''): 
+	if($newsmunch_footer_widget_column !==''):
 	?>
 	<div class="dt_footer-widgets">
 		<div class="dt-row dt-g-lg-5 dt-g-5">
@@ -1375,19 +1416,19 @@ function newsmunch_footer_widget() {
 					<?php dynamic_sidebar( 'newsmunch-footer-widget-1'); ?>
 				</div>
 			<?php endif; ?>
-			
+
 			<?php if ( is_active_sidebar( 'newsmunch-footer-widget-2' ) ) : ?>
 				<div class="dt-col-lg-<?php echo esc_attr($column); ?> dt-col-sm-6 dt-col-12">
 					<?php dynamic_sidebar( 'newsmunch-footer-widget-2'); ?>
 				</div>
 			<?php endif; ?>
-			
+
 			<?php if ( is_active_sidebar( 'newsmunch-footer-widget-3' ) ) : ?>
 				<div class="dt-col-lg-<?php echo esc_attr($column); ?> dt-col-sm-6 dt-col-12">
 					<?php dynamic_sidebar( 'newsmunch-footer-widget-3'); ?>
 				</div>
 			<?php endif; ?>
-			
+
 			<?php if ( is_active_sidebar( 'newsmunch-footer-widget-4' ) ) : ?>
 				<div class="dt-col-lg-<?php echo esc_attr($column); ?> dt-col-sm-6 dt-col-12">
 					<?php dynamic_sidebar( 'newsmunch-footer-widget-4'); ?>
@@ -1395,8 +1436,8 @@ function newsmunch_footer_widget() {
 			<?php endif; ?>
 		</div>
 	</div>
-	<?php 
-	endif; } 
+	<?php
+	endif; }
 endif;
 add_action( 'newsmunch_footer_widget', 'newsmunch_footer_widget' );
 
@@ -1422,7 +1463,7 @@ function newsmunch_footer_bottom() {
 					<?php do_action('newsmunch_footer_copyright_data'); ?>
 				</div>
 				<?php
-				$newsmunch_footer_copyright_social_hs 	= get_theme_mod( 'newsmunch_footer_copyright_social_hs','1'); 
+				$newsmunch_footer_copyright_social_hs 	= get_theme_mod( 'newsmunch_footer_copyright_social_hs','1');
 				if($newsmunch_footer_copyright_social_hs=='1'): ?>
 				<div class="dt-col-md-12 dt-text-center">
 					<?php do_action('newsmunch_footer_copyright_social'); ?>
@@ -1431,7 +1472,7 @@ function newsmunch_footer_bottom() {
 		</div>
 	</div>
 	<?php
-	} 
+	}
 endif;
 add_action( 'newsmunch_footer_bottom', 'newsmunch_footer_bottom' );
 
@@ -1442,7 +1483,7 @@ if ( ! function_exists( 'newsmunch_footer_copyright_data' ) ) :
 function newsmunch_footer_copyright_data() {
 	$newsmunch_footer_copyright_text = get_theme_mod('newsmunch_footer_copyright_text','Copyright &copy; [current_year] [site_title] | Powered by [theme_author]');
 	?>
-	<?php if(!empty($newsmunch_footer_copyright_text)): 
+	<?php if(!empty($newsmunch_footer_copyright_text)):
 			$newsmunch_copyright_allowed_tags = array(
 				'[current_year]' => date_i18n('Y'),
 				'[site_title]'   => get_bloginfo('name'),
@@ -1455,7 +1496,7 @@ function newsmunch_footer_copyright_data() {
 			?>
          </span>
 <?php endif;
-	} 
+	}
 endif;
 add_action( 'newsmunch_footer_copyright_data', 'newsmunch_footer_copyright_data' );
 
@@ -1465,7 +1506,7 @@ NewsMunch Footer Copyright Social
 =========================================*/
 if ( ! function_exists( 'newsmunch_footer_copyright_social' ) ) :
 function newsmunch_footer_copyright_social() {
-	$newsmunch_footer_copyright_social_hs 	= get_theme_mod( 'newsmunch_footer_copyright_social_hs','1'); 
+	$newsmunch_footer_copyright_social_hs 	= get_theme_mod( 'newsmunch_footer_copyright_social_hs','1');
 	$newsmunch_footer_copyright_social 		= get_theme_mod( 'newsmunch_footer_copyright_social',newsmunch_get_social_icon_default());
 	if($newsmunch_footer_copyright_social_hs=='1'): ?>
 		<div class="widget widget_social">
@@ -1473,15 +1514,15 @@ function newsmunch_footer_copyright_social() {
 				$newsmunch_footer_copyright_social = json_decode($newsmunch_footer_copyright_social);
 				if( $newsmunch_footer_copyright_social!='' )
 				{
-				foreach($newsmunch_footer_copyright_social as $item){	
-				$social_icon = ! empty( $item->icon_value ) ? apply_filters( 'newsmunch_translate_single_string', $item->icon_value, 'Footer Social' ) : '';	
+				foreach($newsmunch_footer_copyright_social as $item){
+				$social_icon = ! empty( $item->icon_value ) ? apply_filters( 'newsmunch_translate_single_string', $item->icon_value, 'Footer Social' ) : '';
 				$social_link = ! empty( $item->link ) ? apply_filters( 'newsmunch_translate_single_string', $item->link, 'Footer Social' ) : '';
 			?>
 				<a href="<?php echo esc_url( $social_link ); ?>"><i class="<?php echo esc_attr( $social_icon ); ?>"></i></a>
 			<?php }} ?>
 		</div>
 	<?php endif;
-	} 
+	}
 endif;
 add_action( 'newsmunch_footer_copyright_social', 'newsmunch_footer_copyright_social' );
 
@@ -1491,7 +1532,7 @@ NewsMunch Scroller
 if ( ! function_exists( 'newsmunch_top_scroller' ) ) :
 function newsmunch_top_scroller() {
 	$newsmunch_hs_scroller_option	=	get_theme_mod('newsmunch_hs_scroller_option','1');
-?>		
+?>
 	<?php if ($newsmunch_hs_scroller_option == '1') { ?>
 		<button type="button" id="dt_uptop" class="dt_uptop">
 			<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
@@ -1499,7 +1540,7 @@ function newsmunch_top_scroller() {
 			</svg>
 		</button>
 	<?php }
-	} 
+	}
 endif;
 add_action( 'newsmunch_top_scroller', 'newsmunch_top_scroller' );
 
@@ -1576,7 +1617,7 @@ function newsmunch_style_switcher() {
 		</div>
 		<?php
 	endif;
-	} 
+	}
 endif;
 add_action( 'newsmunch_style_switcher', 'newsmunch_style_switcher' );
 
@@ -1587,7 +1628,7 @@ function newsmunch_get_post_view() {
 		return "$count views";
 	else:
 		return "0 views";
-	endif;	
+	endif;
 }
 function newsmunch_set_post_view() {
     $key = 'post_views_count';
@@ -1642,7 +1683,7 @@ if (!function_exists('newsmunch_get_post_categories')) :
 					else:
 						$color='#00baff';
 					endif;
-                    $output .= '<a href="' . esc_url(get_category_link($post_category)) . '" alt="' . esc_attr(sprintf(__('View all posts in %s', 'newsmunch-pro'), $post_category->name)) . '"> 
+                    $output .= '<a href="' . esc_url(get_category_link($post_category)) . '" alt="' . esc_attr(sprintf(__('View all posts in %s', 'newsmunch-pro'), $post_category->name)) . '">
                                  ' . esc_html($post_category->name) . '
                              </a>';
                 }
@@ -1653,7 +1694,7 @@ if (!function_exists('newsmunch_get_post_categories')) :
             ?>
 
         	</div>
-			
+
         <?php }
     }
 endif;
@@ -1693,7 +1734,7 @@ class NEWSMUNCH_POST_CAT_META {
   public function __construct() {
     //
   }
- 
+
  /*
   * Initialize the class and start calling our hooks and filters
   * @since 1.0.0
@@ -1710,7 +1751,7 @@ class NEWSMUNCH_POST_CAT_META {
 public function load_media() {
  wp_enqueue_media();
 }
- 
+
  /*
   * Add a form field in the new category page
   * @since 1.0.0
@@ -1731,7 +1772,7 @@ public function load_media() {
 	</div>
  <?php
  }
- 
+
  /*
   * Save the form field
   * @since 1.0.0
@@ -1741,18 +1782,18 @@ public function load_media() {
      $image = $_POST['category-image-id'];
      add_term_meta( $term_id, 'category-image-id', $image, true );
    }
-   
+
    if( isset( $_POST['newsmunch_cat_article_lbl'] ) && '' !== $_POST['newsmunch_cat_article_lbl'] ){
      $newsmunch_cat_article_lbl = $_POST['newsmunch_cat_article_lbl'];
      add_term_meta( $term_id, 'newsmunch_cat_article_lbl', $newsmunch_cat_article_lbl, true );
    }
-   
+
    if( isset( $_POST['newsmunch_course_cat_url'] ) && '' !== $_POST['newsmunch_course_cat_url'] ){
      $newsmunch_course_cat_url = $_POST['newsmunch_course_cat_url'];
      add_term_meta( $term_id, 'newsmunch_course_cat_url', $newsmunch_course_cat_url, true );
    }
  }
- 
+
  /*
   * Edit the form field
   * @since 1.0.0
@@ -1776,7 +1817,7 @@ public function load_media() {
        </p>
      </td>
    </tr>
-   
+
 	 <?php $newsmunch_cat_article_lbl = get_term_meta ( $term -> term_id, 'newsmunch_cat_article_lbl', true ); ?>
 	<tr class="form-field">
 	<th scope="row" valign="top"><label for="newsmunch_cat_article_lbl"><?php _e( 'Article Label', 'newsmunch-pro' ); ?></label></th>
@@ -1798,14 +1839,14 @@ public function load_media() {
    } else {
      update_term_meta ( $term_id, 'category-image-id', '' );
    }
-   
+
    if( isset( $_POST['newsmunch_cat_article_lbl'] ) && '' !== $_POST['newsmunch_cat_article_lbl'] ){
      $image = $_POST['newsmunch_cat_article_lbl'];
      update_term_meta ( $term_id, 'newsmunch_cat_article_lbl', $image );
    } else {
      update_term_meta ( $term_id, 'newsmunch_cat_article_lbl', '' );
    }
- 
+
  }
 
 /*
@@ -1836,7 +1877,7 @@ public function load_media() {
          return false;
        });
      }
-     ct_media_upload('.ct_tax_media_button.button'); 
+     ct_media_upload('.ct_tax_media_button.button');
      $('body').on('click','.ct_tax_media_remove',function(){
        $('#category-image-id').val('');
        $('#category-image-wrapper').html('<img class="custom_media_image" src="" style="margin:0;padding:0;max-height:100px;float:none;" />');
@@ -1858,10 +1899,10 @@ public function load_media() {
  <?php }
 
   }
- 
+
 $NEWSMUNCH_POST_CAT_META = new NEWSMUNCH_POST_CAT_META();
 $NEWSMUNCH_POST_CAT_META -> init();
- 
+
 }
 
 
@@ -1872,16 +1913,16 @@ if (!function_exists('newsmunch_common_post_title')):
     function newsmunch_common_post_title($tag,$class)
     {
         if ( is_single() ) :
-							
+
 		the_title('<'.$tag.' class="'.$class.'">', '</'.$tag.'>' );
-		
+
 		else:
-		
+
 		the_title( sprintf( '<'.$tag.' class="'.$class.'"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></'.$tag.'>' );
-		
+
 		endif;
     }
-add_action('newsmunch_common_post_title','newsmunch_common_post_title');	
+add_action('newsmunch_common_post_title','newsmunch_common_post_title');
 endif;
 
 /**
@@ -1893,7 +1934,7 @@ if (!function_exists('newsmunch_common_post_author')):
 		$user = wp_get_current_user(); ?>
 		<li class="list-inline-item"><a href="<?php echo esc_url(get_author_posts_url( get_the_author_meta( 'ID' ) ));?>"><img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ) ) ); ?>" width="32" height="32" class="author" alt="<?php esc_attr(the_author()); ?>"/><?php esc_html(the_author()); ?></a></li>
    <?php }
-add_action('newsmunch_common_post_author','newsmunch_common_post_author');	
+add_action('newsmunch_common_post_author','newsmunch_common_post_author');
 endif;
 
 
@@ -1906,7 +1947,7 @@ if (!function_exists('newsmunch_common_post_date')):
 	?>
 		<li class="list-inline-item"><i class="far fa-calendar-alt"></i> <?php echo esc_html(get_the_date( 'F j, Y' )); ?></li>
    <?php }
-add_action('newsmunch_common_post_date','newsmunch_common_post_date');	
+add_action('newsmunch_common_post_date','newsmunch_common_post_date');
 endif;
 
 
@@ -1938,7 +1979,7 @@ if (!function_exists('newsmunch_post_format_icon_type')):
 			<i class="far fa-comment"></i>
 		<?php endif;
     }
-add_action('newsmunch_post_format_icon_type','newsmunch_post_format_icon_type');	
+add_action('newsmunch_post_format_icon_type','newsmunch_post_format_icon_type');
 endif;
 
 
@@ -1950,20 +1991,20 @@ if (!function_exists('newsmunch_post_format_image_video')):
     {
         $format = get_post_format() ? : 'standard';
 		global $post;
-		
-        if ( $format == 'video' || $format == 'audio' ) : 
-			$media = get_media_embedded_in_content( 
+
+        if ( $format == 'video' || $format == 'audio' ) :
+			$media = get_media_embedded_in_content(
 						apply_filters( 'the_content', get_the_content() )
 					);
-					
+
 			if(!empty($media)): ?>
 				<div class="inner">
 					<?php echo $media['0']; ?>
 				</div>
-			<?php endif;	
-			
+			<?php endif;
+
 		 elseif ( $format == 'gallery' ) :
-			
+
 			global $post;
 			//echo $posts_gallery = get_post_gallery( );
 		 	// if (has_block('gallery', $post->post_content)) {
@@ -1976,7 +2017,7 @@ if (!function_exists('newsmunch_post_format_image_video')):
 				// }
 			  // }
 			// }
-				
+
 				$gallery = get_post_gallery( $post, false );
 				if( ! empty($gallery) && has_block('gallery', $post->post_content)){ //if gallery was found
 				  //strangely, IDs are served as a STRING (at least in WP 4.5)
@@ -1984,9 +2025,9 @@ if (!function_exists('newsmunch_post_format_image_video')):
 				  <div class="post-gallery">
 					 <?php  foreach( $gallery['ids'] as $order => &$image_attachment_id ){ ?>
 						<div class="item"><img width="1600" height="1067" src="<?php echo wp_get_attachment_image_src($image_attachment_id, 'full')[0]; ?>" class="attachment-full size-full" alt="" /></div>
-					 <?php  } ?>			  
+					 <?php  } ?>
 				  </div>
-			<?php } 
+			<?php }
 			// if there is not a gallery block do this
 			else { ?>
 				<a href="<?php echo esc_url(get_permalink()); ?>">
@@ -1995,8 +2036,8 @@ if (!function_exists('newsmunch_post_format_image_video')):
 					</div>
 				</a>
 		<?php }
-	
-				
+
+
 		 else: ?>
 				<a href="<?php echo esc_url(get_permalink()); ?>">
 					<div class="inner">
@@ -2047,22 +2088,22 @@ if (!function_exists('newsmunch_post_format_content')):
 			</div>
 			<?php
 
-		else : 
-			
+		else :
+
 			$newsmunch_enable_post_excerpt= get_theme_mod('newsmunch_enable_post_excerpt','1');
 			if($newsmunch_enable_post_excerpt == '1'):
 				global $post;
 				the_excerpt();
-				if ( function_exists( 'newsmunch_execerpt_btn' ) ) : newsmunch_execerpt_btn(); endif; 
-			else:	
+				if ( function_exists( 'newsmunch_execerpt_btn' ) ) : newsmunch_execerpt_btn(); endif;
+			else:
 				the_content(
-					sprintf( 
-						__( 'Read More', 'newsmunch-pro' ), 
-						'<span class="screen-reader-text">  '.esc_html(get_the_title()).'</span>' 
+					sprintf(
+						__( 'Read More', 'newsmunch-pro' ),
+						'<span class="screen-reader-text">  '.esc_html(get_the_title()).'</span>'
 					)
 				);
-			endif;		
-			
+			endif;
+
 		 endif;
     }
 endif;
@@ -2070,36 +2111,36 @@ add_action( 'newsmunch_post_format_content', 'newsmunch_post_format_content' );
 
 
 
-if ( ! function_exists( 'newsmunch_post_sharing' ) ) { 
-	function newsmunch_post_sharing() {	
-	
+if ( ! function_exists( 'newsmunch_post_sharing' ) ) {
+	function newsmunch_post_sharing() {
+
 	global $post; ?>
-	
+
 	<div class="social-share dt-mr-auto">
 		<button class="toggle-button fas fa-share-nodes"></button>
 		<ul class="icons list-unstyled list-inline dt-mb-0">
 			<?php $facebook_link = 'https://www.facebook.com/sharer/sharer.php?u='.esc_url( get_the_permalink() ); ?>
 			<li class="list-inline-item"><a href="<?php echo esc_url ( $facebook_link ); ?>"><i class="fab fa-facebook-f"></i></a></li>
-			
+
 			<?php $twitter_link = 'https://twitter.com/intent/tweet?url='. esc_url( get_the_permalink() ); ?>
 			<li class="list-inline-item"><a href="<?php echo esc_url ( $twitter_link ); ?>"><i class="fab fa-twitter"></i></a></li>
-			
+
 			<?php $linkedin_link = 'http://www.linkedin.com/shareArticle?url='.esc_url( get_the_permalink() ).'&amp;title='.get_the_title(); ?>
 			<li class="list-inline-item"><a href="<?php echo esc_url( $linkedin_link ); ?>"><i class="fab fa-linkedin-in"></i></a></li>
-			
+
 			<?php $pinterest_link = 'https://pinterest.com/pin/create/button/?url='.esc_url( get_the_permalink() ).'&amp;media='.esc_url( wp_get_attachment_url( get_post_thumbnail_id($post->ID)) ).'&amp;description='.get_the_title(); ?>
 			<li class="list-inline-item"><a href="<?php echo esc_url( $pinterest_link ); ?>"><i class="fab fa-pinterest"></i></a></li>
-			
+
 			<?php $whatsapp_link = 'https://api.whatsapp.com/send?text=*'. get_the_title() .'*\n'. esc_html( get_the_excerpt() ) .'\n'. esc_url( get_the_permalink() ); ?>
 			<li class="list-inline-item"><a href="<?php echo esc_url( $whatsapp_link ); ?>"><i class="fab fa-whatsapp"></i></a></li>
-			
+
 			<?php $tumblr_link = 'http://www.tumblr.com/share/link?url='. urlencode( esc_url(get_permalink()) ) .'&amp;name='.urlencode( get_the_title() ).'&amp;description='.urlencode( wp_trim_words( get_the_excerpt(), 50 ) ); ?>
 			<li class="list-inline-item"><a href="<?php echo esc_url( $tumblr_link ); ?>"><i class="fab fa-tumblr"></i></a></li>
-			
+
 			<?php $reddit_link = 'http://reddit.com/submit?url='. esc_url( get_the_permalink() ) .'&amp;title='.get_the_title(); ?>
 			<li class="list-inline-item"><a href="<?php echo esc_url( $reddit_link ); ?>"><i class="fab fa-reddit"></i></a></li>
 		</ul>
-	</div>	
+	</div>
 	<?php
 	}
 }
@@ -2114,7 +2155,7 @@ function newsmunch_author_social_icons( $authoricons ) {
 		$authoricons['youtube_profile'] = 'Youtube Profile URL';
 		return $authoricons;
 	}
-add_filter( 'user_contactmethods', 'newsmunch_author_social_icons', 10, 1);	
+add_filter( 'user_contactmethods', 'newsmunch_author_social_icons', 10, 1);
 
 
 
@@ -2133,7 +2174,7 @@ function newsmunch_list_top_tags($taxonomy = 'post_tag', $number = 8)
 			$newsmunch_hlatest_story_cat		= get_theme_mod('newsmunch_hlatest_story_cat','0');
 			$newsmunch_hlatest_story_posts		= newsmunch_get_posts($newsmunch_hlatest_story_cat);
 			do_action('newsmunch_top_tags_option_before');
-			
+
 				$top_tags = get_terms(array(
 					'taxonomy' => $taxonomy,
 					'number' => absint($number),
@@ -2164,7 +2205,7 @@ function newsmunch_list_top_tags($taxonomy = 'post_tag', $number = 8)
 						$html .= '</ul>';
 						$html .= '</div></div>';
 					}
-					
+
 					if($newsmunch_hs_hlatest_story == '1'){
 						$html .= '<div class="exclusive-posts clearfix">';
 						if (!empty($newsmunch_hlatest_story_ttl)):
@@ -2181,8 +2222,8 @@ function newsmunch_list_top_tags($taxonomy = 'post_tag', $number = 8)
 								$html .= '<img src="' . esc_url(get_the_post_thumbnail_url()) . '"/>';
 							}
 							$html .= esc_html(get_the_title());
-							$html .= '</a>';	
-						endwhile;endif;wp_reset_postdata();		
+							$html .= '</a>';
+						endwhile;endif;wp_reset_postdata();
 						$html .= '</div></div>';
 						$html .= '</div>';
 					}
@@ -2191,7 +2232,7 @@ function newsmunch_list_top_tags($taxonomy = 'post_tag', $number = 8)
 				echo $html;
 			//}
 			do_action('newsmunch_top_tags_option_after');
-		endif;	
+		endif;
 	}
 }
 
@@ -2209,10 +2250,10 @@ if (!function_exists('newsmunch_post_pagination')):
 			<nav class="navigation pagination dt-text-center dt-load-more">
 				<?php echo wp_kses_post( $newsmunch_post_pagination_lm_btn ); ?>
 				<div class="dt-loader">
-					<div class="uil-ripple-css"><div></div><div></div></div>									
+					<div class="uil-ripple-css"><div></div><div></div></div>
 				</div>
 			</nav>
-		<?php endif; elseif(  $newsmunch_post_pagination_type == 'infinite' ):	
+		<?php endif; elseif(  $newsmunch_post_pagination_type == 'infinite' ):
 			if ( !empty( $newsmunch_post_pagination_lm_btn ) ) : ?>
 			<nav class="navigation pagination dt-text-center dt-infinite-scroll">
 				<?php echo wp_kses_post( $newsmunch_post_pagination_lm_btn ); ?>
@@ -2220,7 +2261,7 @@ if (!function_exists('newsmunch_post_pagination')):
 					<div class="uil-ripple-css"><div></div><div></div></div>
 				</div>
 			</nav>
-		<?php endif; else: 
+		<?php endif; else:
 				the_posts_pagination( array(
 					'prev_text'          => '<i class="fa fa-angle-double-left"></i>',
 					'next_text'          => '<i class="fa fa-angle-double-right"></i>'
@@ -2254,7 +2295,7 @@ if (!function_exists('newsmunch_edit_post_link')) :
                 '</span>'
             );
 
-    } 
+    }
 endif;
 
 

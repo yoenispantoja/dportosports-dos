@@ -581,7 +581,7 @@ if (!function_exists('newsmunch_add_sports_results')) {
 /**
  * Display Sports Results in homepage
  */
-add_action('newsmunch_top_tags_option_after', 'newsmunch_add_sports_results', 10);
+add_action('newsmunch_site_main_header', 'newsmunch_add_sports_results', 99);
 
 /**
  * Display Sports Results in single posts, pages and archives
@@ -593,7 +593,7 @@ function newsmunch_inject_sports_results() {
 		add_action('get_header', 'newsmunch_add_sports_results_after_header');
 	}
 }
-add_action('template_redirect', 'newsmunch_inject_sports_results');
+// add_action('template_redirect', 'newsmunch_inject_sports_results');
 
 function newsmunch_add_sports_results_after_header() {
 	ob_start();

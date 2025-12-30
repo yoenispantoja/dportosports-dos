@@ -1155,7 +1155,6 @@ function newsmunch_site_slider_middle() {
 
 	if ($streams) {
 		echo '<div class="lsw-widget dt-mt-4">'; // Added margin top for spacing
-		echo '<h4 class="widget-title">' . esc_html__('Eventos en Vivo', 'newsmunch-pro') . '</h4>';
 		foreach ($streams as $stream) {
 			$embed = get_post_meta($stream->ID, '_lsw_stream_embed', true);
 			$title_stream = get_the_title($stream);

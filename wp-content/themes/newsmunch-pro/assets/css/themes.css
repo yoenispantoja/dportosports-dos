@@ -12184,3 +12184,31 @@ button.dt_uptop {
         padding-right: 7rem;
     }
 }
+
+/* Orden correcto: Main primero, Sidebar después */
+@media (min-width: 992px) {
+    /* En desktop: Main a la izquierda (order 2), Sidebar a la derecha (order 3) */
+    #dt-main {
+        order: 2;
+    }
+
+    #dt-sidebar {
+        order: 3;
+    }
+
+    /* Sidebar izquierdo se muestra después visualmente pero mantiene orden DOM */
+    #dt-sidebar.sidebar-left {
+        order: 1;
+    }
+}
+
+/* En móviles: Main primero, Sidebar después */
+@media (max-width: 991px) {
+    #dt-main {
+        order: 1;
+    }
+
+    #dt-sidebar {
+        order: 2;
+    }
+}

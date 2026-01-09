@@ -93,8 +93,8 @@
     min-width: 180px;
     max-width: 220px;
     width: 100%;
-    background: #2a2a2a;
-    border: 1px solid #3a3a3a;
+    background: #ffffff;
+    border: 1px solid #cccccc;
     border-radius: 6px;
     padding: 8px 10px;
     transition: all 0.2s ease;
@@ -104,8 +104,8 @@
 }
 
 .srm-result-card:hover {
-    background: #333333;
-    border-color: #4a4a4a;
+    background: #f9f9f9;
+    border-color: #999999;
 }
 
 /* Clickable Card con tooltip mejorado */
@@ -114,7 +114,7 @@
 }
 
 .srm-result-card.srm-clickable:hover {
-    background: #2e3a4a;
+    background: #f0f5fa;
     border-color: #2271b1;
     transform: translateY(-2px);
 }
@@ -158,11 +158,11 @@
     align-items: center;
     margin-bottom: 6px;
     padding-bottom: 5px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .srm-event-name {
-    color: #aaaaaa;
+    color: #666666;
     font-size: 10px;
     font-weight: 600;
     text-transform: uppercase;
@@ -205,7 +205,7 @@
     width: 32px;
     height: 32px;
     object-fit: contain;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.03);
     border-radius: 4px;
     padding: 3px;
 }
@@ -224,7 +224,7 @@
 }
 
 .srm-team-abbr {
-    color: #ffffff;
+    color: #000000;
     font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
@@ -240,14 +240,14 @@
 }
 
 .srm-score-value {
-    color: #ffffff;
+    color: #000000;
     font-size: 18px;
     font-weight: 700;
     line-height: 1;
 }
 
 .srm-score-separator {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(0, 0, 0, 0.4);
     font-size: 14px;
     font-weight: 500;
 }

@@ -15,7 +15,7 @@ class SRM_Public {
     }
 
     public function enqueue_styles() {
-        wp_enqueue_style($this->plugin_name, SRM_PLUGIN_URL . 'public/css/srm-public.css', array(), $this->version, 'all');
+        wp_enqueue_style($this->plugin_name, SRM_PLUGIN_URL . 'public/css/srm-public.css', array(), $this->version . '.' . time(), 'all');
     }
 
     public function enqueue_scripts() {

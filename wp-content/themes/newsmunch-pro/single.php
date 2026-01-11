@@ -8,7 +8,7 @@
  */
 
 get_header();
-$newsmunch_single_pg_sidebar_option = get_theme_mod('newsmunch_single_pg_sidebar_option', 'right_sidebar'); 
+$newsmunch_single_pg_sidebar_option = get_theme_mod('newsmunch_single_pg_sidebar_option', 'right_sidebar');
 $newsmunch_hs_latest_post_title		= get_theme_mod('newsmunch_hs_latest_post_title','1');
 $newsmunch_hs_latest_post_tag_meta	= get_theme_mod('newsmunch_hs_latest_post_tag_meta','1');
 $newsmunch_hs_latest_post_auth_meta	= get_theme_mod('newsmunch_hs_latest_post_auth_meta','1');
@@ -25,12 +25,12 @@ $format = get_post_format() ? : 'standard';
 		<?php if($newsmunch_single_pg_sidebar_option == 'left_sidebar'): get_sidebar(); endif; ?>
 		<div class="dt-col-lg-8 content-right">
 			<div class="post post-single">
-				<?php if( have_posts() ): 
+				<?php if( have_posts() ):
 					// Start the loop.
 					while( have_posts() ): the_post();
 						newsmunch_set_post_view(); ?>
 						<div class="post-header">
-							<?php 
+							<?php
 								if($newsmunch_hs_latest_post_title=='1'):
 									newsmunch_common_post_title('h3','title dt-mt-0 dt-mb-3');
 								endif;
@@ -39,12 +39,11 @@ $format = get_post_format() ? : 'standard';
 								<?php if($newsmunch_hs_latest_post_auth_meta=='1'): ?>
 									<?php do_action('newsmunch_common_post_author'); ?>
 								<?php endif; ?>
-								
-								<?php if($newsmunch_hs_latest_post_tag_meta=='1'): ?>
-									<li class="list-inline-item">
-										<?php the_category(', '); ?>
-									</li>
-								<?php endif; ?>
+
+								<?php // Categorías siempre visibles en single post ?>
+								<li class="list-inline-item" style="display: inline-block !important; visibility: visible !important; opacity: 1 !important;">
+									<?php the_category(' , '); ?>
+								</li>
 
 								<?php if($newsmunch_hs_latest_post_date_meta=='1'): ?>
 									<li class="list-inline-item"><?php echo esc_html(get_the_date( 'F j, Y' )); ?></li>
@@ -61,7 +60,7 @@ $format = get_post_format() ? : 'standard';
 										<?php the_post_thumbnail(); ?>
 									</div>
 								<?php } ?>
-								<?php if($newsmunch_hs_latest_post_content_meta=='1'): ?> 
+								<?php if($newsmunch_hs_latest_post_content_meta=='1'): ?>
 									<?php
 										the_content(
 											sprintf(
@@ -85,7 +84,7 @@ $format = get_post_format() ? : 'standard';
 												<?php if($newsmunch_hs_latest_post_tag_meta=='1'): ?>
 													<li class="list-inline-item">
 													<?php
-														if($newsmunch_hs_latest_post_tag_meta=='1'): 
+														if($newsmunch_hs_latest_post_tag_meta=='1'):
 															$posttags = get_the_tags();
 															if($posttags){
 																foreach($posttags as $index=>$tag){
@@ -104,11 +103,11 @@ $format = get_post_format() ? : 'standard';
 							</footer>
 						</article>
 				<?php endwhile; // End the loop.
-					endif; 
+					endif;
 					// Author Box
 					$newsmunch_hs_single_author_option	= get_theme_mod('newsmunch_hs_single_author_option','1');
 					if($newsmunch_hs_single_author_option == '1'){
-						get_template_part('template-parts/content/content','author'); 
+						get_template_part('template-parts/content/content','author');
 					}
 					$newsmunch_hs_single_post_nav	= get_theme_mod('newsmunch_hs_single_post_nav','1');
 					if($newsmunch_hs_single_post_nav == '1'){
@@ -125,7 +124,7 @@ $format = get_post_format() ? : 'standard';
 				 <?php }
 				 $newsmunch_hs_single_related_post	= get_theme_mod('newsmunch_hs_single_related_post','1');
 				 if($newsmunch_hs_single_related_post == '1'){
-					get_template_part('template-parts/content/content','related'); 
+					get_template_part('template-parts/content/content','related');
 				 }
 				 comments_template( '', true ); // show comments  ?>
 			</div>

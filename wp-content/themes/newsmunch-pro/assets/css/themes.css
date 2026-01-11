@@ -187,7 +187,7 @@ a {
 a:hover,
 a:active,
 a:focus {
-    color: var(--dt-main-color);
+    color: #ffffff;
     text-decoration-style: dotted;
 }
 
@@ -5762,7 +5762,7 @@ div.dt-d-inline-block {
 .dt_navbar-nav .dt_navbar-mainmenu li.active>a,
 .dt_navbar-nav .dt_navbar-mainmenu>li.focus>a,
 .dt_navbar-nav .dt_navbar-mainmenu>li:hover>a {
-    color: var(--dt-main-color);
+    color: #ffffff;
 }
 
 .dt_footer_copyright .widget_nav_menu .sub-menu,
@@ -5839,7 +5839,7 @@ div.dt-d-inline-block {
 .dt_navbar-nav .dt_navbar-mainmenu .dropdown-menu li.active>a,
 .dt_navbar-nav .dt_navbar-mainmenu .dropdown-menu li:hover>a,
 .dt_navbar-nav .dt_navbar-mainmenu .dropdown-menu li.focus>a {
-    color: var(--dt-main-color);
+    color: #ffffff;
     padding-left: 2.15rem;
 }
 
@@ -8460,7 +8460,7 @@ main {
 .post-single .navigation.post-navigation .nav-links a:focus h5,
 .post .post-title a:hover,
 .post .post-title a:focus {
-    color: var(--dt-main-color);
+    color: #ffffff;
     background-size: 100% 6%;
 }
 
@@ -8485,7 +8485,7 @@ main {
 
 .post .meta a:hover,
 .post .meta a:focus {
-    color: var(--dt-main-color);
+    color: #ffffff;
     text-decoration: underline;
 }
 

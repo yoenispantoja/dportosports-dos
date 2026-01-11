@@ -37,24 +37,9 @@ $format = get_post_format() ? : 'standard';
 		</div>
 	<?php endif; ?>
 	<div class="details clearfix dt-py-4 dt-px-3">
-		<ul class="meta list-inline dt-mt-0 dt-mb-3">
-			<?php if($newsmunch_hs_latest_post_auth_meta=='1'): ?>
-				<?php do_action('newsmunch_common_post_author'); ?>
-			<?php endif; ?>	
-			<?php if($newsmunch_hs_latest_post_cat_meta=='1'): ?> <li class="list-inline-item"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_category(' , '); ?></a></li><?php  endif; ?>
-			<?php if($newsmunch_hs_latest_post_date_meta=='1'): ?>
-				<?php do_action('newsmunch_common_post_date'); ?>
-			<?php endif; ?>	 
-			<?php if($newsmunch_hs_latest_post_view_meta=='1'): ?>
-				<li class="list-inline-item"><i class="far fa-eye"></i> <?php echo wp_kses_post(newsmunch_get_post_view()); ?></li>
-			<?php endif; ?>
-			<?php if($newsmunch_hs_latest_post_reading_meta=='1'): ?>
-				<li class="list-inline-item"><i class="fa-solid fa-eye"></i> <?php echo esc_html(newsmunch_read_time()); ?></li>
-			<?php endif; ?>
-			<?php newsmunch_edit_post_link(); ?>
-		</ul>
-		<?php if($newsmunch_hs_latest_post_title=='1'): newsmunch_common_post_title('h5','post-title'); endif; ?> 
-		<?php  if($newsmunch_hs_latest_post_content_meta=='1'):	?> 
+
+		<?php if($newsmunch_hs_latest_post_title=='1'): newsmunch_common_post_title('h5','post-title'); endif; ?>
+		<?php  if($newsmunch_hs_latest_post_content_meta=='1'):	?>
 			<p class="excerpt dt-mb-0"><?php do_action('newsmunch_post_format_content'); ?></p>
 		<?php endif; ?>
 		<div class="post-bottom clearfix dt-d-flex dt-align-items-center">
